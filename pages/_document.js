@@ -1,0 +1,34 @@
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import React from "react";
+
+class MyDocument extends Document {
+	render() {
+		const pageProps = this.props?.__NEXT_DATA__?.props?.pageProps;
+
+		return (
+			<Html lang="zxx" className={pageProps.isDark ? "theme-dark" : ""}>
+				<Head>
+					<link rel="icon" href="/images/favicon.png" />
+					<link
+						href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+						rel="stylesheet"
+					/>
+					<link
+						href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+						rel="stylesheet"
+					/>
+					<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
+					<link rel="preconnect" href="https://fonts.googleapis.com" />
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={`true`} />
+					<link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+				</Head>
+				<body>
+					<Main />
+					<NextScript />
+				</body>
+			</Html>
+		);
+	}
+}
+
+export default MyDocument;
