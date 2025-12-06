@@ -7,6 +7,9 @@ const Footer = () => {
 	const global = useContext(GlobalContext);
 	const [contact, setContact] = useState(null);
 	const [aboutCompany, setAboutCompany] = useState(null);
+	const [dropdown, setDropdown] = useState(false);
+	const [dropdown2, setDropdown2] = useState(false);
+	const [dropdown3, setDropdown3] = useState(false);
 	useEffect(() => {
 		setContact(global.data?.contact);
 		setAboutCompany(global.data?.aboutCompany);
@@ -18,11 +21,11 @@ const Footer = () => {
 				<div className="container">
 					<div className="row justify-content-center">
 						<div className="col-lg-3 col-md-6">
-							<div className="single-footer-widget" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-								<h3>{aboutCompany?.companyName?.toUpperCase() || "CAMGOTECH"}</h3>
-								<p style={{ fontSize: "19px" }}>{aboutCompany?.aboutCompany}</p>
+							<div className="single-footer-widget dropdown-mobile" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
+								<h3 onClick={() => setDropdown(!dropdown)} className={`${dropdown ? "active" : ""}`}>{aboutCompany?.companyName || "Camgotech"}</h3>
+								<p className={`${dropdown ? "active" : ""}`} style={{ fontSize: "19px" }}>{aboutCompany?.aboutCompany}</p>
 
-								<ul className="widget-social">
+								<ul className={`${dropdown ? "active widget-social" : "widget-social"}`}>
 									{contact?.facebookLink && (
 										<li>
 											<a href={contact?.facebookLink} target="_blank" rel="noreferrer">
@@ -56,10 +59,10 @@ const Footer = () => {
 						</div>
 
 						<div className="col-lg-3 col-md-6">
-							<div className="single-footer-widget ps-5" data-aos="fade-up" data-aos-delay="60" data-aos-duration="600" data-aos-once="true">
-								<h3>Menu</h3>
+							<div className="single-footer-widget dropdown-mobile ps-5" data-aos="fade-up" data-aos-delay="60" data-aos-duration="600" data-aos-once="true">
+								<h3 onClick={() => setDropdown2(!dropdown2)} className={`${dropdown2 ? "active" : ""}`}>Menu</h3>
 
-								<ul className="quick-links">
+								<ul className={`${dropdown2 ? "active quick-links" : "quick-links"}`}>
 									<li>
 										<Link href="/about">
 											<a style={{ fontSize: "19px" }}>About Us</a>
@@ -95,10 +98,10 @@ const Footer = () => {
 						</div>
 
 						<div className="col-lg-3 col-md-6">
-							<div className="single-footer-widget ps-5" data-aos="fade-up" data-aos-delay="70" data-aos-duration="700" data-aos-once="true">
-								<h3>Page</h3>
+							<div className="single-footer-widget dropdown-mobile ps-5" data-aos="fade-up" data-aos-delay="70" data-aos-duration="700" data-aos-once="true">
+								<h3 onClick={() => setDropdown3(!dropdown3)} className={`${dropdown3 ? "active" : ""}`}>Page</h3>
 
-								<ul className="quick-links">
+								<ul className={`${dropdown3 ? "active quick-links" : "quick-links"}`}>
 									<li>
 										<Link href="/testimonials">
 											<a style={{ fontSize: "19px" }}>Client's Feedback</a>
@@ -150,7 +153,7 @@ const Footer = () => {
 					<div className="container">
 						<div className="copyright-area-content">
 							<p>
-								Copyright @ 2023{" "}
+								Copyright @ {new Date().getFullYear()}{" "}
 								<a href="/" target="_blank" rel="noreferrer">
 									Camgotech
 								</a>{" "}

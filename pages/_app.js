@@ -101,18 +101,22 @@ function MyApp({ Component, pageProps }) {
 			<Head>
 				<title>Camgotech</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<link
+					href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+					rel="stylesheet"
+				/>
 			</Head>
 			<GlobalContext.Provider value={state}>
 				<TopProgressBar />
 				<Component {...pageProps} />
 			</GlobalContext.Provider>
 			<ScrollToTop />
-			<div className="switch-box">
+			{/* <div className="switch-box">
 				<label id="switch" className="switch">
 					<input type="checkbox" onChange={toggleTheme} id="slider" />
 					<span className="slider round"></span>
 				</label>
-			</div>
+			</div> */}
 			<TawkMessengerReact
 				propertyId="68a7e9306beb8c1922ef148d"
 				widgetId="1j37udq7p"

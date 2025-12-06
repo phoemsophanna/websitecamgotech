@@ -7,12 +7,13 @@ import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import { useInView } from "react-intersection-observer";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const NUMBER_OF_USERS_TO_FETCH = 12;
 
 export default function Projects(props) {
 	const global = useContext(GlobalContext);
-	const [isAll, setIsAll] = useState(true);
+	const [isAll, setIsAll] = useState(false);
 	const [projectCategory, setProjectCategory] = useState([]);
 	const [projects, setProjects] = useState([]);
 	const [data, setData] = useState([]);
@@ -25,12 +26,12 @@ export default function Projects(props) {
 		setProjectCategory((state) => state.map((el) => ({ ...el, isActive: el.id === id })));
 		if (id != 0) {
 			setIsAll(false);
-			setProjects(data ? data.filter((el) => el.category_id === id) : []);
-			// getProjects(id);
+			// setProjects(data ? data.filter((el) => el.category_id === id) : []);
+			getProjects(id);
 		} else {
 			setIsAll(true);
-			setProjects(data ? data : []);
-			// getProjects('all');
+			// setProjects(data ? data : []);
+			getProjects('all');
 		}
 	};
 
@@ -54,8 +55,11 @@ export default function Projects(props) {
 	useEffect(() => {
 		setSetting(props?.settings.project);
 		setProjectCategory(props?.projectCategory.map((el) => ({ ...el, isActive: false })));
+		const categoryId = props?.projectCategory.find((el,index) => index == 0);
 		// if (inView && allowScroll) {
-		getProjects("all");
+		if(categoryId.id){
+			handleSelectTypeProject(categoryId.id);
+		}
 		// setOffset(offset + NUMBER_OF_USERS_TO_FETCH);
 		// }
 	}, [props, inView]);
@@ -101,8 +105,22 @@ export default function Projects(props) {
 						<h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2>
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
 					</div>
-
-					<ul className="projects-filter-menu">
+					<div className="swiper-category">
+						<Swiper 
+							slidesPerView="auto"
+							freeMode={true} 
+						>
+							{projectCategory?.map((el, index) => (
+								<SwiperSlide key={index} className={el.isActive ? "filter mixitup-control-active" : "filter"} onClick={() => handleSelectTypeProject(el.id)}>
+									{el.name}
+								</SwiperSlide>
+							))}
+							<SwiperSlide className={isAll ? "filter mixitup-control-active" : "filter"} onClick={() => handleSelectTypeProject(0)}>
+								All
+							</SwiperSlide>
+						</Swiper>
+					</div>
+					{/* <ul className="projects-filter-menu with-background">
 						<li className={isAll ? "filter mixitup-control-active" : "filter"} onClick={() => handleSelectTypeProject(0)}>
 							All
 						</li>
@@ -111,7 +129,7 @@ export default function Projects(props) {
 								{el.name}
 							</li>
 						))}
-					</ul>
+					</ul> */}
 
 					<div id="Container" className="row justify-content-center">
 						{projects?.map((el, index) => (
@@ -177,6 +195,13 @@ export default function Projects(props) {
 												<li>
 													<a href={el.telegramLink} target="_blank" rel="noreferrer">
 														<i className="ri-telegram-line"></i>
+													</a>
+												</li>
+											)}
+											{el.tiktokLink && (
+												<li>
+													<a href={el.tiktokLink} target="_blank" rel="noreferrer">
+														<i className="ri-tiktok-fill"></i>	
 													</a>
 												</li>
 											)}

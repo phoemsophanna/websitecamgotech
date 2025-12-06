@@ -6,6 +6,7 @@ import Head from "next/head";
 import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export async function getStaticProps() {
 	// fetch single post detail
@@ -88,17 +89,29 @@ export default function WebHosting(props) {
 					</div>
 
 					{group.length > 0 ? (
-						<ul className="projects-filter-menu with-background">
-							{group.map((el, index) => (
-								<li
-									key={index}
-									onClick={() => handleChangeGroup(el.id)}
-									className={el.id === currentPage ? "filter mixitup-control-active" : "filter"}
-								>
-									{el.title}
-								</li>
-							))}
-						</ul>
+						<div className="swiper-category">
+							<Swiper
+								slidesPerView="auto"
+								freeMode={true} 
+							>
+								{group?.map((el, index) => (
+									<SwiperSlide key={index} className={el.id === currentPage ? "filter mixitup-control-active" : "filter"} onClick={() => handleChangeGroup(el.id)}>
+										{el.title}
+									</SwiperSlide>
+								))}
+							</Swiper>
+						</div>
+						// <ul className="projects-filter-menu with-background">
+						// 	{group.map((el, index) => (
+						// 		<li
+						// 			key={index}
+						// 			onClick={() => handleChangeGroup(el.id)}
+						// 			className={el.id === currentPage ? "filter mixitup-control-active" : "filter"}
+						// 		>
+						// 			{el.title}
+						// 		</li>
+						// 	))}
+						// </ul>
 					) : null}
 
 					<div className="row justify-content-center">

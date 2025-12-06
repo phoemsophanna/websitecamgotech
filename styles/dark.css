@@ -1099,7 +1099,7 @@ Default CSS
 
 .theme-dark .blog-card .blog-content .date {
 	color: var(--white-color);
-	border: 1px solid #dfbd4e;
+	border: 1px solid #8d8d8d;
 }
 
 .theme-dark .skill-area {
@@ -2802,10 +2802,10 @@ Default CSS
 .theme-dark .single-pricing-card {
 	background-color: #151515;
 	padding: 30px;
-	border-radius: 15px;
+	border-radius: 25px;
 	margin-bottom: 25px;
 	position: relative;
-	border: 1px solid #2e2e2e;
+	border: 1px solid #1d1d1d;
 }
 .theme-dark .single-pricing-card .price {
 	font-size: 35px;

@@ -219,8 +219,10 @@ Navbar Area CSS
 	bottom: 20px;
 	right: 0;
 	width: 0;
-	height: 3.5px;
-	background: radial-gradient(circle, #feb302, #f8c600, #eed900, #e0ec00, #cdff05);
+	height: 2px;
+	/* height: 3.5px; */
+	/* background: radial-gradient(circle, #feb302, #f8c600, #eed900, #e0ec00, #cdff05); */
+	background: radial-gradient(circle, #feb302, #f8c600, #eed900, #f4ce15, #ffe605);
 	-webkit-transition: all ease 0.5s;
 	transition: all ease 0.5s;
 	border-radius: 50px;
