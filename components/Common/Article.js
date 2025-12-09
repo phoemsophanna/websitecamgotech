@@ -5,12 +5,12 @@ import Link from "next/link";
 import { api } from "@/utils/config";
 import { DateTimeFormat } from "@/utils/DateTimeFormate";
 
-const Article = ({ articles, setting }) => {
+const Article = ({ articles, setting, color = null }) => {
 	const swiperRef = React.useRef();
 
 	return (
 		<>
-			<div className="blog-area pt-100 pb-75">
+			<div className={`blog-area pt-100 pb-75 ${color ? "homepage" : ""}`} style={color ? {backgroundColor: color} : {}}>
 				<div className="container">
 					<div className="section-title">
 						<span>ARTICLE</span>
@@ -18,8 +18,8 @@ const Article = ({ articles, setting }) => {
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
 					</div>
 					<div className="section-content">
-						<div className="swiper-button-prev" onClick={() => swiperRef.current?.slidePrev()}></div>
-						<div className="swiper-button-next" onClick={() => swiperRef.current?.slideNext()}></div>
+						{/* <div className="swiper-button-prev" onClick={() => swiperRef.current?.slidePrev()}></div>
+						<div className="swiper-button-next" onClick={() => swiperRef.current?.slideNext()}></div> */}
 						<Swiper
 							slidesPerView={2}
 							spaceBetween={30}

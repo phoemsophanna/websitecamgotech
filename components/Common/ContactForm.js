@@ -95,7 +95,7 @@ const ContactForm = ({ thumbnail }) => {
 						<div className="col-lg-6 col-md-12">
 							<div className="talk-content margin-zero">
 								<div className="talk-bg-text">LET&apos;S TALK</div>
-								<span>LET&apos;S TALK</span>
+								{/* <span>LET&apos;S TALK</span> */}
 								<h3>We Would Like To Hear From You Anytime</h3>
 
 								<div className="contact-from">

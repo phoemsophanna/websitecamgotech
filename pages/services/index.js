@@ -71,7 +71,7 @@ export default function Services2(props) {
 
 			<AllServicesCardStyle2 services={services} setting={settings?.service} />
 
-			<Skills bgColor="skill-area ptb-100 service-bg" skillsets={skillsets} setting={settings?.skillset} />
+			<Skills bgColor="skill-area ptb-100 service-area" skillsets={skillsets} setting={settings?.skillset} />
 
 			<Footer />
 		</>

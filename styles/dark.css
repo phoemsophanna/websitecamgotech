@@ -492,7 +492,10 @@ Default CSS
 .theme-dark .navbar-style-two-with-color .main-navbar .navbar .navbar-nav .nav-item a:hover,
 .theme-dark .navbar-style-two-with-color .main-navbar .navbar .navbar-nav .nav-item a:focus,
 .theme-dark .navbar-style-two-with-color .main-navbar .navbar .navbar-nav .nav-item a.active {
-	color: var(--main-color);
+	/* color: var(--main-color); */
+	background: radial-gradient(circle, #d6b449, #cda32f, #d4ae42, #cea82e, #f2ba2b);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .theme-dark .navbar-style-two-with-color .main-navbar .navbar .navbar-nav .nav-item:hover a,
@@ -1089,12 +1092,13 @@ Default CSS
 
 .theme-dark .blog-area {
 	border-top: 1px solid #151515;
-	background-color: #0e0e0e;
+	background-color: var(--black-color);
 }
 
 .theme-dark .partner-area {
 	border-bottom: 1px solid #151515;
 	background-color: #0e0e0e;
+	border-top: 1px solid #151515;
 }
 
 .theme-dark .blog-card .blog-content .date {
@@ -1614,7 +1618,7 @@ Default CSS
 
 .theme-dark .widget-area .widget_categories .list li a {
 	color: var(--white-color);
-	background-color: #0e0e0e;
+	background-color: #1e1e1e;
 	-webkit-box-shadow: unset;
 	box-shadow: unset;
 }
@@ -2662,7 +2666,7 @@ Default CSS
 }
 
 .theme-dark .blog-details-desc .article-share {
-	background-color: #181818;
+	background-color: #1e1e1e;
 }
 
 .theme-dark .blog-details-desc .article-comments .comments-list h5 {
@@ -2882,9 +2886,15 @@ Default CSS
 }
 .theme-dark .talk-content .contact-from form .form-group .form-control {
 	color: #fff;
-	background-color: var(--black-color);
+	/* background-color: var(--black-color); */
+	background-color: #353535;
 	border: 1px solid var(--black-color);
 }
+
+.contact-from .default-btn {
+	background-color: #353535;
+}
+
 .theme-dark .talk-content .contact-from form .form-group .form-control::placeholder {
 	color: #fff;
 }

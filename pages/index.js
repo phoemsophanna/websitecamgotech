@@ -54,7 +54,7 @@ export default function Home(props) {
 			{props?.data?.projects?.length > 0 ? <ProjectSlider projects={props?.data?.projects} setting={settings?.project} /> : ""}
 			{props?.data?.testimonials?.length > 0 ? <Testimonials testimonials={props?.data?.testimonials} setting={settings?.testimonial} /> : ""}
 			{props?.data?.plans?.length > 0 ? <PricingTable className="rounded-4" plans={props?.data?.plans} setting={settings?.webHosting} /> : ""}
-			{props?.data?.articles?.length > 0 ? <Article articles={props?.data?.articles} setting={settings?.techNews} /> : ""}
+			{props?.data?.articles?.length > 0 ? <Article articles={props?.data?.articles} color={"var(--black-color)"} setting={settings?.techNews} /> : ""}
 			{props?.data?.technologies?.length > 0 ? <Partners technologies={props?.data?.technologies} /> : ""}
 
 			<Footer className="rounded-4" />

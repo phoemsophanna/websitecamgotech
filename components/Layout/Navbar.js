@@ -53,6 +53,8 @@ const Navbar = () => {
 	const [isDark, setDark] = useState(true);
 	
 	const toggleTheme = () => {
+		localStorage.setItem("darkmode", !isDark);
+		console.log(!isDark);
 		setDark(!isDark);
 	};
 
@@ -60,6 +62,14 @@ const Navbar = () => {
 		Aos.init();
 		document.documentElement.className = isDark ? "theme-dark" : "";
 	}, [isDark]);
+
+	useEffect(() => {
+		const darkMode = localStorage.getItem("darkmode");
+		if(darkMode != "true"){
+			setDark(false);
+		}
+		document.documentElement.className = darkMode == "true" ? "theme-dark" : "";
+	},[])
 
 	return (
 		<>
@@ -125,7 +135,7 @@ const Navbar = () => {
 								<div className="others-options d-none d-md-flex align-items-center">
 									<div className="switch-box">
 										<label className="switch">
-											<input type="checkbox" onChange={toggleTheme} />
+											<input type="checkbox" checked={isDark ? false : true} onChange={toggleTheme} />
 											<span className="slider round"></span>
 										</label>
 									</div>

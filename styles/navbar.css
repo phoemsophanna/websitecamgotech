@@ -159,8 +159,12 @@ Navbar Area CSS
 	padding: 10px 0;
 }
 
-.main-navbar.navbar-with-black-color {
+.theme-dark .main-navbar.navbar-with-black-color {
 	background-color: var(--black-color);
+}
+
+.main-navbar.navbar-with-black-color {
+	background-color: #2a2a2a;
 }
 
 .main-navbar .container-fluid {
@@ -231,7 +235,10 @@ Navbar Area CSS
 .main-navbar .navbar .navbar-nav .nav-item a:hover,
 .main-navbar .navbar .navbar-nav .nav-item a:focus,
 .main-navbar .navbar .navbar-nav .nav-item a.active {
-	color: var(--main-color);
+	/* color: var(--main-color); */
+	background: radial-gradient(circle, #d6b449, #cda32f, #d4ae42, #cea82e, #f2ba2b);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .main-navbar .navbar .navbar-nav .nav-item a:hover::after,
@@ -253,7 +260,10 @@ Navbar Area CSS
 
 .main-navbar .navbar .navbar-nav .nav-item:hover a,
 .main-navbar .navbar .navbar-nav .nav-item.active a {
-	color: var(--main-color);
+	background: radial-gradient(circle, #d6b449, #cda32f, #d4ae42, #cea82e, #f2ba2b);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	/* color: var(--main-color); */
 }
 
 .main-navbar .navbar .navbar-nav .nav-item .dropdown-menu {
@@ -781,7 +791,10 @@ Navbar Area CSS
 .navbar-style-two-with-color .main-navbar .navbar .navbar-nav .nav-item a:hover,
 .navbar-style-two-with-color .main-navbar .navbar .navbar-nav .nav-item a:focus,
 .navbar-style-two-with-color .main-navbar .navbar .navbar-nav .nav-item a.active {
-	color: var(--main-color);
+	/* color: var(--main-color); */
+	background: radial-gradient(circle, #d6b449, #cda32f, #d4ae42, #cea82e, #f2ba2b);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .navbar-style-two-with-color .main-navbar .navbar .navbar-nav .nav-item:hover a,
@@ -1587,9 +1600,8 @@ Sidebar Modal CSS
 	height: 30px;
 	width: 30px;
 	line-height: 30px;
-
-	color: var(--main-color);
-	border: 1px solid var(--main-color);
+	color: var(--black-color);
+	border: 1px solid var(--black-color);
 	font-size: 20px;
 	-webkit-transition: var(--transition);
 	transition: var(--transition);
@@ -1768,6 +1780,14 @@ Sidebar Modal CSS
 	left: 0;
 	top: 2px;
 	font-size: var(--font-size);
+	color: var(--black-color);
+}
+
+.theme-dark .sidebarModal.modal .modal-body .sidebar-contact-info .info-list li i {
+	position: absolute;
+	left: 0;
+	top: 2px;
+	font-size: var(--font-size);
 	color: var(--main-color);
 }
 
@@ -1788,6 +1808,21 @@ Sidebar Modal CSS
 }
 
 .sidebarModal.modal .modal-body .sidebar-social-list li i {
+	display: inline-block;
+	height: 35px;
+	width: 35px;
+	line-height: 35px;
+	/* background: var(--btn-gradient-color); */
+	border: 1px solid var(--black-color);
+	text-align: center;
+	color: var(--black-color);
+	font-size: var(--font-size);
+	border-radius: 50%;
+	-webkit-transition: var(--transition);
+	transition: var(--transition);
+}
+
+.theme-dark .sidebarModal.modal .modal-body .sidebar-social-list li i {
 	display: inline-block;
 	height: 35px;
 	width: 35px;

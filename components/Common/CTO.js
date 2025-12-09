@@ -16,7 +16,9 @@ const CTO = () => {
 					<div className="row justify-content-center">
 						<div className="col-lg-3 col-md-6">
 							<div className="overview-card">
-								<h3 style={{ color: "#dfbd4e !important", fontSize: "16px" }}>Chat Us</h3>
+								<h3 style={{ 
+									fontSize: "16px",
+								}}>Chat Us</h3>
 								<span>
 									<a href={contact?.facebookLink} target="_blank" rel="noreferrer">
 										<div className="icon-wrapper">
@@ -36,7 +38,7 @@ const CTO = () => {
 						</div>
 						<div className="col-lg-3 col-md-6">
 							<div className="overview-card">
-								<h3 style={{ color: "#dfbd4e !important", fontSize: "16px" }}>Call Us</h3>
+								<h3 style={{ fontSize: "16px" }}>Call Us</h3>
 								<span>
 									{contact?.phoneNumber1 && (
 										<a href={`tel:${contact.phoneNumber1}`} target="_blank" rel="noreferrer">
@@ -61,7 +63,7 @@ const CTO = () => {
 
 						<div className="col-lg-3 col-md-6">
 							<div className="overview-card">
-								<h3 style={{ color: "#dfbd4e !important", fontSize: "16px" }}>Email Us</h3>
+								<h3 style={{ fontSize: "16px" }}>Email Us</h3>
 								<span>
 									{contact?.email1 && (
 										<a href={`mailto:${contact.email1}`} target="_blank" rel="noreferrer">
@@ -87,7 +89,7 @@ const CTO = () => {
 
 						<div className="col-lg-3 col-md-6">
 							<div className="overview-card">
-								<h3 style={{ color: "#dfbd4e !important", fontSize: "16px" }}>Visit Us</h3>
+								<h3 style={{ fontSize: "16px" }}>Visit Us</h3>
 								<span>
 									<a href={`https://maps.google.com/maps?q=${contact?.address}`} target="_blank" rel="noreferrer">
 										<div className="icon-wrapper">{contact?.address}</div>

@@ -10,6 +10,7 @@ const Footer = () => {
 	const [dropdown, setDropdown] = useState(false);
 	const [dropdown2, setDropdown2] = useState(false);
 	const [dropdown3, setDropdown3] = useState(false);
+	const [dropdown4, setDropdown4] = useState(false);
 	useEffect(() => {
 		setContact(global.data?.contact);
 		setAboutCompany(global.data?.aboutCompany);
@@ -132,18 +133,20 @@ const Footer = () => {
 						</div>
 
 						<div className="col-lg-3 col-md-6">
-							<div className="single-footer-widget" data-aos="fade-up" data-aos-delay="80" data-aos-duration="800" data-aos-once="true">
-								<h3>Our Facebook Page</h3>
-								{contact && (
-									<FacebookProvider appId={contact.appId}>
-										<Page href={`https://www.facebook.com/${contact.pageId}`} tabs="timeline" width={500} height={230} />
-									</FacebookProvider>
-								)}
-								{contact && (
-									<FacebookProvider appId={contact.appId} chatSupport>
-										<CustomChat pageId="100662512843050" minimized="false" />
-									</FacebookProvider>
-								)}
+							<div className="single-footer-widget dropdown-mobile" data-aos="fade-up" data-aos-delay="80" data-aos-duration="800" data-aos-once="true">
+								<h3 onClick={() => setDropdown4(!dropdown4)} className={`${dropdown4 ? "active" : ""}`}>Facebook Page</h3>
+								<div className={`facebook-plugin ${dropdown4 ? "active" : ""}`}>
+									{contact && (
+										<FacebookProvider appId={contact.appId}>
+											<Page href={`https://www.facebook.com/${contact.pageId}`} tabs="timeline" width={500} height={230} />
+										</FacebookProvider>
+									)}
+									{contact && (
+										<FacebookProvider appId={contact.appId} chatSupport>
+											<CustomChat pageId="100662512843050" minimized="false" />
+										</FacebookProvider>
+									)}
+								</div>
 							</div>
 						</div>
 					</div>
