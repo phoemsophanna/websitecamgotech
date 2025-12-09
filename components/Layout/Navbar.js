@@ -134,7 +134,7 @@ const Navbar = () => {
 								<div className="others-options d-none d-md-flex align-items-center">
 									<div className="switch-box">
 										<label className="switch">
-											<input type="checkbox" checked={isDark ? false : true} onChange={toggleTheme} />
+											<input type="checkbox" checked={isDark} onChange={toggleTheme} />
 											<span className="slider round"></span>
 										</label>
 									</div>
