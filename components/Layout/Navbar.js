@@ -50,7 +50,7 @@ const Navbar = () => {
 		setActiveSidebarLeftModal(!isActiveSidebarLeftModal);
 	};
 
-	const [isDark, setDark] = useState(false);
+	const [isDark, setDark] = useState(true);
 	
 	const toggleTheme = () => {
 		localStorage.setItem("darkmode", !isDark);
@@ -67,7 +67,8 @@ const Navbar = () => {
 		if(darkMode == "false"){
 			setDark(false);
 		}
-		document.documentElement.className = darkMode != "false" ? "theme-dark" : "";
+		console.log(darkMode);
+		// document.documentElement.className = darkMode != "false" ? "theme-dark" : "";
 	},[])
 
 	return (
@@ -134,7 +135,7 @@ const Navbar = () => {
 								<div className="others-options d-none d-md-flex align-items-center">
 									<div className="switch-box">
 										<label className="switch">
-											<input type="checkbox" checked={isDark} onChange={toggleTheme} />
+											<input type="checkbox" checked={isDark ? false : true} onChange={toggleTheme} />
 											<span className="slider round"></span>
 										</label>
 									</div>
