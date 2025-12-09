@@ -50,11 +50,10 @@ const Navbar = () => {
 		setActiveSidebarLeftModal(!isActiveSidebarLeftModal);
 	};
 
-	const [isDark, setDark] = useState(true);
+	const [isDark, setDark] = useState(false);
 	
 	const toggleTheme = () => {
 		localStorage.setItem("darkmode", !isDark);
-		console.log(!isDark);
 		setDark(!isDark);
 	};
 
@@ -65,10 +64,10 @@ const Navbar = () => {
 
 	useEffect(() => {
 		const darkMode = localStorage.getItem("darkmode");
-		if(darkMode != "true"){
+		if(darkMode == "false"){
 			setDark(false);
 		}
-		document.documentElement.className = darkMode == "true" ? "theme-dark" : "";
+		document.documentElement.className = darkMode != "false" ? "theme-dark" : "";
 	},[])
 
 	return (
