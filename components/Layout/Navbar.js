@@ -53,7 +53,7 @@ const Navbar = () => {
 	const [isDark, setDark] = useState(true);
 	
 	const toggleTheme = () => {
-		localStorage.setItem("darkmode", !isDark);
+		sessionStorage.setItem("darkmode", !isDark);
 		setDark(!isDark);
 	};
 
@@ -63,11 +63,10 @@ const Navbar = () => {
 	}, [isDark]);
 
 	useEffect(() => {
-		const darkMode = localStorage.getItem("darkmode");
+		const darkMode = sessionStorage.getItem("darkmode");
 		if(darkMode == "false"){
 			setDark(false);
 		}
-		console.log(darkMode);
 		// document.documentElement.className = darkMode != "false" ? "theme-dark" : "";
 	},[])
 
