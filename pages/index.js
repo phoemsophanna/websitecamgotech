@@ -12,6 +12,7 @@ import Article from "@/components/Common/Article";
 import Footer from "@/components/Layout/Footer";
 import { api } from "@/utils/config";
 import Head from "next/head";
+import Script from "next/script";
 
 export default function Home(props) {
 	const [settings, setSettings] = useState(null);

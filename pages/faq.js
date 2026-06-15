@@ -8,6 +8,7 @@ import Navbar from "@/components/Layout/Navbar";
 import { api } from "@/utils/config";
 import Head from "next/head";
 import GlobalContext from "@/utils/global-context";
+import Script from "next/script";
 
 export async function getStaticProps() {
 	// fetch single post detail

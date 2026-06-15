@@ -8,6 +8,7 @@ import Head from "next/head";
 import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
+import Script from "next/script";
 
 export async function getStaticProps() {
 	// fetch single post detail

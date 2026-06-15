@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { api } from "@/utils/config";
 import Head from "next/head";
 import GlobalContext from "@/utils/global-context";
+import Script from "next/script";
 
 export default function ProjectsDetails() {
 	const global = useContext(GlobalContext);

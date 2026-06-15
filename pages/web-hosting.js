@@ -7,6 +7,7 @@ import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Script from "next/script";
 
 export async function getStaticProps() {
 	// fetch single post detail

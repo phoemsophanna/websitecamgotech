@@ -9,6 +9,7 @@ import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
+import Script from "next/script";
 
 export async function getStaticPaths() {
 	const response = await fetch(`${api.BASE_URL}/career-page`);

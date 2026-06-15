@@ -7,6 +7,7 @@ import Head from "next/head";
 import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
+import Script from "next/script";
 
 export default function Blog2(props) {
 	const global = useContext(GlobalContext);

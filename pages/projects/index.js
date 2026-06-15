@@ -8,6 +8,7 @@ import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Script from "next/script";
 
 const NUMBER_OF_USERS_TO_FETCH = 12;
 

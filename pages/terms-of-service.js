@@ -8,6 +8,7 @@ import GlobalContext from "@/utils/global-context";
 import axios from "axios";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
+import Script from "next/script";
 
 export default function TermsOfService() {
 	const global = useContext(GlobalContext);
