@@ -57,6 +57,19 @@ export default function About(props) {
 				<meta name="twitter:title" content="About Us - Camgotech" />
 				<meta name="twitter:description" content={props?.settings?.meta?.metaDesc} />
 				<meta name="twitter:image" content={`${api.FILE_URI}${props?.settings?.meta?.image}`} />
+				<Script
+					src="https://www.googletagmanager.com/gtag/js?id=AW-640216146"
+					strategy="afterInteractive"
+				/>
+
+				<Script id="google-ads" strategy="afterInteractive">
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'AW-640216146');
+					`}
+				</Script>
 			</Head>
 			<Navbar />
 

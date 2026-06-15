@@ -42,6 +42,19 @@ export default function Home(props) {
 				<meta name="twitter:title" content="Home - Camgotech" />
 				<meta name="twitter:description" content={props?.data?.meta?.metaKeyword} />
 				<meta name="twitter:image" content={`${api.FILE_URI}${props?.data?.meta?.image}`} />
+				<Script
+					src="https://www.googletagmanager.com/gtag/js?id=AW-640216146"
+					strategy="afterInteractive"
+				/>
+
+				<Script id="google-ads" strategy="afterInteractive">
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'AW-640216146');
+					`}
+				</Script>
 			</Head>
 			<Navbar />
 
