@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }) {
 	React.useEffect(() => {
 		const handleRouteChange = (url) => {
 			if (typeof window.gtag === "function") {
-				window.gtag("config", "G-R5YFLGPENB", {
+				window.gtag("config", "AW-640216146", {
 					page_path: url,
 				});
 				console.log(`Page view tracked: ${url}`); // Optional: for debugging
@@ -92,7 +92,7 @@ function MyApp({ Component, pageProps }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-R5YFLGPENB', {
+            gtag('config', 'AW-640216146', {
               page_path: window.location.pathname,
             });
           `,
