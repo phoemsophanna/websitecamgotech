@@ -83,7 +83,7 @@ function MyApp({ Component, pageProps }) {
 
 	return (
 		<>
-			<Script strategy="afterInteractive" src='https://www.googletagmanager.com/gtag/js?id=G-R5YFLGPENB' />
+			<Script strategy="afterInteractive" src='https://www.googletagmanager.com/gtag/js?id=AW-640216146' />
 			<Script
 				id="gtag-init"
 				strategy="afterInteractive"
