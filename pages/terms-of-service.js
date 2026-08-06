@@ -34,7 +34,7 @@ export default function TermsOfService() {
 			<Head>
 				<title>Term of Service - Camgotech</title>
 				<Script
-					src="https://www.googletagmanager.com/gtag/js?id=AW-640216146"
+					src="https://www.googletagmanager.com/gtag/js?id=G-R5YFLGPENB"
 					strategy="afterInteractive"
 				/>
 
@@ -43,7 +43,7 @@ export default function TermsOfService() {
 						window.dataLayer = window.dataLayer || [];
 						function gtag(){dataLayer.push(arguments);}
 						gtag('js', new Date());
-						gtag('config', 'AW-640216146');
+						gtag('config', 'G-R5YFLGPENB');
 					`}
 				</Script>
 			</Head>
