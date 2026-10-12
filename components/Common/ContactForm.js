@@ -1,4 +1,4 @@
-import React, { createRef, useRef, useState } from "react";
+import React, { createRef, useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -7,6 +7,8 @@ import Tilt from "react-next-tilt";
 import { api } from "@/utils/config";
 import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "@emailjs/browser";
+import AnimatedText from "./AnimatedText";
+import GlobalContext from "@/utils/global-context";
 
 const alertContent = () => {
 	MySwal.fire({
@@ -28,12 +30,19 @@ const INITIAL_STATE = {
 	text: "",
 };
 
-const ContactForm = ({ thumbnail }) => {
+const ContactForm = ({ thumbnail, background }) => {
 	const [contact, setContact] = useState(INITIAL_STATE);
 	const [isLoading, setIsLoading] = useState(false);
 	const [recaptcha, setRecaptcha] = useState(null);
 	const [recaptchaMsg, setRecaptchaMsg] = useState(null);
 	const recaptchaRef = useRef();
+
+	const global = useContext(GlobalContext);
+	const [contacts, setContacts] = useState(null);
+
+	useEffect(() => {
+		setContacts(global.data?.contact);
+	}, [global]);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -78,25 +87,199 @@ const ContactForm = ({ thumbnail }) => {
 
 	return (
 		<>
-			<div className="talk-area ptb-100">
+			<div className="talk-area" style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 				<div className="container">
 					<div className="row align-items-center">
 						<div className="col-lg-6 col-md-12">
-							<div className="talk-image d-none d-lg-block">
+							<div className="contact-grid">
+								{/* Chat Us */}
+								<div className="contact-glass-card">
+									<div className="contact-card-header">
+										<div>
+											<h3>Chat Us</h3>
+											<p>Get in touch with us on Facebook or Telegram.</p>
+										</div>
+									</div>
+
+									<div className="contact-links">
+
+										{contacts?.facebookLink && (
+											<a
+												href={contacts.facebookLink}
+												target="_blank"
+												rel="noreferrer"
+												className="contact-link"
+											>
+												<div className="contact-link-icon facebook">
+													<i className="ri-facebook-fill"></i>
+												</div>
+
+												<span>Facebook</span>
+
+												<i className="ri-external-link-line contact-link-arrow"></i>
+											</a>
+										)}
+
+										{contacts?.telegramLink && (
+											<a
+												href={contacts.telegramLink}
+												target="_blank"
+												rel="noreferrer"
+												className="contact-link"
+											>
+												<div className="contact-link-icon telegram">
+													<i className="ri-telegram-fill"></i>
+												</div>
+
+												<span>Telegram</span>
+
+												<i className="ri-external-link-line contact-link-arrow"></i>
+											</a>
+										)}
+
+									</div>
+								</div>
+
+
+								{/* Call Us */}
+								<div className="contact-glass-card">
+									<div className="contact-card-header">
+										<div>
+											<h3>Call Us</h3>
+											<p>Feel free to call us anytime.</p>
+										</div>
+									</div>
+
+									<div className="contact-links">
+
+										{contacts?.phoneNumber1 && (
+											<a
+												href={`tel:${contacts.phoneNumber1}`}
+												className="contact-link"
+											>
+												<div className="contact-link-icon phone">
+													<i className="ri-phone-fill"></i>
+												</div>
+
+												<span>{contacts.phoneNumber1}</span>
+
+												<i className="ri-phone-line contact-link-arrow"></i>
+											</a>
+										)}
+
+										{contacts?.phoneNumber2 && (
+											<a
+												href={`tel:${contacts.phoneNumber2}`}
+												className="contact-link"
+											>
+												<div className="contact-link-icon phone">
+													<i className="ri-phone-fill"></i>
+												</div>
+
+												<span>{contacts.phoneNumber2}</span>
+
+												<i className="ri-phone-line contact-link-arrow"></i>
+											</a>
+										)}
+
+									</div>
+								</div>
+
+
+								{/* Email Us */}
+								<div className="contact-glass-card">
+									<div className="contact-card-header">
+										<div>
+											<h3>Email Us</h3>
+											<p>Send us an email and we'll get back to you soon.</p>
+										</div>
+									</div>
+
+									<div className="contact-links">
+
+										{contacts?.email1 && (
+											<a
+												href={`mailto:${contacts.email1}`}
+												className="contact-link"
+											>
+												<div className="contact-link-icon email">
+													<i className="ri-mail-fill"></i>
+												</div>
+
+												<span>{contacts.email1}</span>
+
+												<i className="ri-external-link-line contact-link-arrow"></i>
+											</a>
+										)}
+
+										{contacts?.email2 && (
+											<a
+												href={`mailto:${contacts.email2}`}
+												className="contact-link"
+											>
+												<div className="contact-link-icon email">
+													<i className="ri-mail-fill"></i>
+												</div>
+
+												<span>{contacts.email2}</span>
+
+												<i className="ri-external-link-line contact-link-arrow"></i>
+											</a>
+										)}
+
+									</div>
+								</div>
+
+
+								{/* Visit Us */}
+								<div className="contact-glass-card">
+									<div className="contact-card-header">
+										<div>
+											<h3>Visit Us</h3>
+											<p>Find us on Google Maps and come say hello!</p>
+										</div>
+									</div>
+
+									{contacts?.address && (
+										<div className="contact-links">
+
+											<a
+												href={`https://maps.google.com/maps?q=${encodeURIComponent(
+													contacts.address
+												)}`}
+												target="_blank"
+												rel="noreferrer"
+												className="contact-link"
+											>
+												<div className="contact-link-icon location">
+													<i className="ri-map-pin-fill"></i>
+												</div>
+
+												<span>{contacts.address}</span>
+
+												<i className="ri-external-link-line contact-link-arrow"></i>
+											</a>
+
+										</div>
+									)}
+								</div>
+
+							</div>
+							{/* <div className="talk-image d-none d-lg-block">
 								<Tilt lineGlareEnable={false} lineGlareBlurEnable={false} spotGlareEnable={false}>
 									<img src={api.FILE_URI + thumbnail} alt="image" />
 								</Tilt>
 							</div>
 							<div className="talk-image d-lg-none d-block">
 								<img src={api.FILE_URI + thumbnail} alt="image" />
-							</div>
+							</div> */}
 						</div>
 
 						<div className="col-lg-6 col-md-12">
 							<div className="talk-content margin-zero">
 								<div className="talk-bg-text">LET&apos;S TALK</div>
 								{/* <span>LET&apos;S TALK</span> */}
-								<h3>We Would Like To Hear From You Anytime</h3>
+								<AnimatedText as="h3" className="title" html="We Would Like To Hear From You Anytime" />
 
 								<div className="contact-from">
 									<form onSubmit={handleSubmit}>

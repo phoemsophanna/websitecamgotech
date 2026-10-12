@@ -10,6 +10,7 @@ import Head from "next/head";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 export async function getStaticPaths() {
 	const response = await fetch(`${api.BASE_URL}/service-page`);
@@ -44,6 +45,7 @@ export default function ServiceDetails(props) {
 	const [service, setService] = useState(null);
 	const [settings, setSettings] = useState(null);
 	const [relatedServices, setRelatedServices] = useState([]);
+	const { isThemeDark } = useToggleTheme();
 
 	useEffect(() => {
 		setLoading(true);
@@ -122,34 +124,13 @@ export default function ServiceDetails(props) {
 			/>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.ServiceDetailPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2 className="fs-1">{service ? service.title : "Loading..."}</h2> */}
-						<ul className="with-black-bg">
-							<li>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li>
-								<Link href="/services">
-									<a>Services</a>
-								</Link>
-							</li>
-							<li>{service ? service.title : "Loading..."}</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
 			{loading ? <div className="camgotech_spinner"></div> : null}
 
-			{service ? <ServicesDetailsContent service={service} /> : null}
+			{service ? <ServicesDetailsContent service={service} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} /> : null}
 
 			{relatedServices.length > 0 ? (
 				<div className="radius-0">
-					<ServiceSlider hasBgColor={true} services={relatedServices} setting={settings?.service} />
+					<ServiceSlider hasBgColor={true} services={relatedServices} setting={settings?.service} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 				</div>
 			) : null}
 

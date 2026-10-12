@@ -94,23 +94,7 @@ export default function PrivacyPolicy() {
 			/>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.PrivacyPolicyPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Privacy Policy</h2> */}
-						<ul>
-							<li>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li>Privacy Policy</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div className="privacy-policy-area ptb-100">
+			<div className="privacy-policy-area ptb-100" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.PrivacyPolicyPage})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="row justify-content-center">
 						<div className="col-lg-10 col-md-12">
@@ -126,7 +110,7 @@ export default function PrivacyPolicy() {
 				</div>
 			</div>
 
-			<CTO />
+			{/* <CTO /> */}
 
 			<Footer />
 		</>

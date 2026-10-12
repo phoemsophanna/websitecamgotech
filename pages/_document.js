@@ -6,7 +6,7 @@ class MyDocument extends Document {
 		const pageProps = this.props?.__NEXT_DATA__?.props?.pageProps;
 
 		return (
-			<Html lang="zxx" className={pageProps.isDark ? "theme-dark" : ""}>
+			<Html lang="zxx" className={pageProps.isDark ? "theme-dark" : "theme-light"}>
 				<Head>
 					<link rel="icon" href="/images/favicon.png" />
 					<link

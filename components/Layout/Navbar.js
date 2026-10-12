@@ -4,11 +4,15 @@ import { useRouter } from "next/router";
 import GlobalContext from "@/utils/global-context";
 import imageLogo from "@/public/images/logo.png";
 import Aos from "aos";
+import useToggleTheme from "@/utils/useToggleTheme";
+import { svg } from "@/utils/data/Svg";
 
 const Navbar = () => {
 	const router = useRouter();
 	const [menu, setMenu] = React.useState(true);
+	const [dropdown, setDropdown] = useState(false);
 	const global = useContext(GlobalContext);
+	const { setTheme, isThemeDark } = useToggleTheme();
 	const toggleNavbar = () => {
 		setMenu(!menu);
 	};
@@ -49,26 +53,15 @@ const Navbar = () => {
 	const handleToggleSidebarLeftModal = () => {
 		setActiveSidebarLeftModal(!isActiveSidebarLeftModal);
 	};
-
-	const [isDark, setDark] = useState(true);
 	
 	const toggleTheme = () => {
-		sessionStorage.setItem("darkmode", !isDark);
-		setDark(!isDark);
+		setTheme();
 	};
 
 	useEffect(() => {
 		Aos.init();
-		document.documentElement.className = isDark ? "theme-dark" : "";
-	}, [isDark]);
-
-	useEffect(() => {
-		const darkMode = sessionStorage.getItem("darkmode");
-		if(darkMode == "false"){
-			setDark(false);
-		}
-		// document.documentElement.className = darkMode != "false" ? "theme-dark" : "";
-	},[])
+		document.documentElement.className = isThemeDark ? "theme-dark" : "theme-light";
+	}, [isThemeDark]);
 
 	return (
 		<>
@@ -86,11 +79,11 @@ const Navbar = () => {
 
 								<div className={classOne} id="navbarSupportedContent">
 									<ul className="navbar-nav mx-auto">
-										<li className="nav-item">
+										{/* <li className="nav-item">
 											<Link href="/" activeClassName="active">
 												<a className="nav-link">HOME</a>
 											</Link>
-										</li>
+										</li> */}
 										<li className="nav-item">
 											<Link href="/about" activeClassName="active">
 												<a className="nav-link">ABOUT US</a>
@@ -102,6 +95,57 @@ const Navbar = () => {
 													SERVICES
 												</a>
 											</Link>
+											<ul className="dropdown-menu">
+												<li className="nav-item">
+													<Link href="/">
+														<a className="nav-link">
+															<span dangerouslySetInnerHTML={{__html: svg.websites_design}}></span>
+															Website design and development
+														</a>
+													</Link>
+												</li>
+						
+												<li className="nav-item">
+													<Link href="/index-2" activeClassName="active">
+													<a className="nav-link">
+														<span dangerouslySetInnerHTML={{__html: svg.mobile_app}}></span>
+														Mobile app development
+													</a>
+													</Link>
+												</li>
+						
+												<li className="nav-item">
+													<Link href="/index-3" activeClassName="active">
+													<a className="nav-link">
+														<span dangerouslySetInnerHTML={{__html: svg.software}}></span>
+														Software development</a>
+													</Link>
+												</li>
+
+												<li className="nav-item">
+													<Link href="/index-3" activeClassName="active">
+													<a className="nav-link">
+														<span dangerouslySetInnerHTML={{__html: svg.digital}}></span>
+														Digital Marketing & Seo Solution</a>
+													</Link>
+												</li>
+
+												<li className="nav-item">
+													<Link href="/index-3" activeClassName="active">
+													<a className="nav-link">
+														<span dangerouslySetInnerHTML={{__html: svg.domain}}></span>
+														Domain Register & Web Hosting</a>
+													</Link>
+												</li>
+
+												<li className="nav-item">
+													<Link href="/index-3" activeClassName="active">
+													<a className="nav-link">
+														<span dangerouslySetInnerHTML={{__html: svg.design}}></span>
+														Corporate Design</a>
+													</Link>
+												</li>
+											</ul>
 										</li>
 										<li className="nav-item">
 											<Link href="/web-hosting" activeClassName="active">
@@ -118,7 +162,7 @@ const Navbar = () => {
 										<li className={router.pathname === "/blog" || router.pathname === "/blog/[slug]" ? "nav-item active" : "nav-item"}>
 											<Link href="/blog" activeClassName="active">
 												<a className={router.pathname === "/blog" || router.pathname === "/blog/[slug]" ? "nav-link active" : "nav-link"}>
-													ព័ត៌មានបច្ចេកវិទ្យា
+													TECH NEWS
 												</a>
 											</Link>
 										</li>
@@ -134,15 +178,15 @@ const Navbar = () => {
 								<div className="others-options d-none d-md-flex align-items-center">
 									<div className="switch-box">
 										<label className="switch">
-											<input type="checkbox" checked={isDark ? false : true} onChange={toggleTheme} />
+											<input type="checkbox" checked={isThemeDark ? false : true} onChange={toggleTheme} />
 											<span className="slider round"></span>
 										</label>
 									</div>
-									<div className="option-item">
+									{/* <div className="option-item">
 										<div className="side-menu-btn" onClick={handleToggleSidebarModal}>
 											<i className="ri-bar-chart-horizontal-line"></i>
 										</div>
-									</div>
+									</div> */}
 								</div>
 								<div className="others-options d-flex d-md-none align-items-center">
 									<div className="switch-box">
@@ -277,11 +321,6 @@ const Navbar = () => {
 							<div className="sidebar-content">
 								<ul className="navbar-nav ms-auto">
 									<li className="nav-item">
-										<Link href="/" activeClassName="active">
-											<a className="nav-link">HOME</a>
-										</Link>
-									</li>
-									<li className="nav-item">
 										<Link href="/about" activeClassName="active">
 											<a className="nav-link">ABOUT US</a>
 										</Link>
@@ -290,6 +329,63 @@ const Navbar = () => {
 										<Link href="/services" activeClassName="active">
 											<a className="nav-link">SERVICE</a>
 										</Link>
+										<button className={`dropdown-btn ${dropdown ? "active" : ""}`} onClick={(e) => {
+											e.preventDefault();
+											setDropdown((prev) => !prev);
+										}}>
+											{dropdown ? <i class="ri-subtract-line"></i> : <i class="ri-add-line"></i>}
+										</button>
+										<ul className={`dropdown-menu ${dropdown ? "show" : ""}`}>
+											<li className="nav-item">
+												<Link href="/">
+													<a className="nav-link">
+														<span dangerouslySetInnerHTML={{__html: svg.websites_design}}></span>
+														Website design and development
+													</a>
+												</Link>
+											</li>
+					
+											<li className="nav-item">
+												<Link href="/index-2" activeClassName="active">
+												<a className="nav-link">
+													<span dangerouslySetInnerHTML={{__html: svg.mobile_app}}></span>
+													Mobile app development
+												</a>
+												</Link>
+											</li>
+					
+											<li className="nav-item">
+												<Link href="/index-3" activeClassName="active">
+												<a className="nav-link">
+													<span dangerouslySetInnerHTML={{__html: svg.software}}></span>
+													Software development</a>
+												</Link>
+											</li>
+
+											<li className="nav-item">
+												<Link href="/index-3" activeClassName="active">
+												<a className="nav-link">
+													<span dangerouslySetInnerHTML={{__html: svg.digital}}></span>
+													Digital Marketing & Seo Solution</a>
+												</Link>
+											</li>
+
+											<li className="nav-item">
+												<Link href="/index-3" activeClassName="active">
+												<a className="nav-link">
+													<span dangerouslySetInnerHTML={{__html: svg.domain}}></span>
+													Domain Register & Web Hosting</a>
+												</Link>
+											</li>
+
+											<li className="nav-item">
+												<Link href="/index-3" activeClassName="active">
+												<a className="nav-link">
+													<span dangerouslySetInnerHTML={{__html: svg.design}}></span>
+													Corporate Design</a>
+												</Link>
+											</li>
+										</ul>
 									</li>
 									<li className="nav-item">
 										<Link href="/web-hosting" activeClassName="active">
@@ -325,33 +421,28 @@ const Navbar = () => {
 										<span> / </span>
 										<a href="tel:855069 565 956">069 565 956</a>
 									</li>
-
-									<li>
-										<i className="ri-mail-line"></i>
-										<a href="mailto:info@camgotech.com">info@camgotech.com</a>
-									</li>
 								</ul>
 							</div>
 
 							<ul className="sidebar-social-list">
 								<li>
 									<a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-										<i className="ri-facebook-fill"></i>
+										<i className="ri-facebook-fill facebook"></i>
 									</a>
 								</li>
 								<li>
 									<a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-										<i className="ri-instagram-fill"></i>
+										<i className="ri-instagram-fill instagram"></i>
 									</a>
 								</li>
 								<li>
 									<a href="https://www.telegram.com/" target="_blank" rel="noreferrer">
-										<i className="ri-telegram-fill"></i>
+										<i className="ri-telegram-fill telegram"></i>
 									</a>
 								</li>
 								<li>
 									<a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-										<i className="ri-linkedin-fill"></i>
+										<i className="ri-linkedin-fill linkedin"></i>
 									</a>
 								</li>
 							</ul>

@@ -8,11 +8,13 @@ import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 export default function Blog2(props) {
 	const global = useContext(GlobalContext);
 	const [articles, setArticle] = useState([]);
 	const [settings, setSettings] = useState(null);
+	const { isThemeDark } = useToggleTheme();
 
 	useEffect(() => {
 		setArticle(props?.articles);
@@ -50,23 +52,7 @@ export default function Blog2(props) {
 			</Head>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.TechNewsPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>ព័ត៌មានបច្ចេកវិទ្យា</h2> */}
-						<ul>
-							<li style={{ fontSize: "19px" }}>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li style={{ fontSize: "19px" }}>ព័ត៌មានបច្ចេកវិទ្យា</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			{articles?.length > 0 ? <BlogGridStyle2 articles={articles} setting={settings?.techNews} styleCss={{ borderTop: "0px solid" }} /> : null}
+			{articles?.length > 0 ? <BlogGridStyle2 articles={articles} setting={settings?.techNews} styleCss={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})` }} /> : null}
 
 			<Footer />
 		</>

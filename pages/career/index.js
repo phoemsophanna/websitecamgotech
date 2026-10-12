@@ -79,25 +79,9 @@ export default function Career(props) {
 			/>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.CareerPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Career</h2> */}
-						<ul>
-							<li>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li>Career</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<CareerContent careers={careers} telegramLink={global.data?.contact?.telegramLink} background={`url(${api.FILE_URI}${global.data?.pageBanner?.CareerPage})`} />
 
-			<CareerContent careers={careers} telegramLink={global.data?.contact?.telegramLink} />
-
-			<CTO />
+			{/* <CTO /> */}
 
 			<Footer />
 		</>

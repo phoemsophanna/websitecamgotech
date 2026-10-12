@@ -1,11 +1,12 @@
 import { api } from "@/utils/config";
 import React from "react";
 import Tilt from "react-next-tilt";
+import AnimatedText from "../Common/AnimatedText";
 
-const OurGoal = ({ item }) => {
+const OurGoal = ({ item, background }) => {
 	return (
 		<>
-			<div className="about-area our-goal pt-100 pb-75">
+			<div className="about-area our-goal" style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 				<div className="container">
 					<div className="row align-items-center">
 						<div className="col-lg-6 col-md-12">
@@ -35,7 +36,8 @@ const OurGoal = ({ item }) => {
 						<div className="col-lg-6 col-md-12">
 							<div className="about-wrap-content" data-aos="fade-up" data-aos-delay="80" data-aos-duration="800" data-aos-once="true">
 								<span>OUR GOAL</span>
-								<h3 dangerouslySetInnerHTML={{ __html: item.title }}></h3>
+								<AnimatedText as="h3" html={item.title} className="title" />
+								{/* <h3 dangerouslySetInnerHTML={{ __html: item.title }}></h3> */}
 								<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: item.description }}></p>
 							</div>
 						</div>

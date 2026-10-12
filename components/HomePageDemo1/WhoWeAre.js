@@ -3,12 +3,15 @@ import React from "react";
 import Link from "next/link";
 import Tilt from "react-next-tilt";
 import { api } from "@/utils/config";
+import AnimatedText from "../Common/AnimatedText";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 const WhoWeAre = ({ item }) => {
+	const { isThemeDark } = useToggleTheme();
 	return (
 		<>
 			{!item ? (
-				<div className="about-area ptb-100">
+				<div className="about-area ptb-100" style={{backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 					<div className="container">
 						<div className="row align-items-center ">
 							<div className="col-lg-6 col-md-12 placeholder-glow">
@@ -29,12 +32,12 @@ const WhoWeAre = ({ item }) => {
 							</div>
 						</div>
 					</div>
-					<div className="about-shape-1">
+					{/* <div className="about-shape-1">
 						<img src="/images/about/about-shape.png" alt="image" />
-					</div>
+					</div> */}
 				</div>
 			) : (
-				<div className="about-area ptb-100">
+				<div className="about-area ptb-100" style={{backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 					<div className="container">
 						<div className="row align-items-center">
 							<div className="col-lg-6 col-md-12">
@@ -64,7 +67,7 @@ const WhoWeAre = ({ item }) => {
 							<div className="col-lg-6 col-md-12">
 								<div className="about-content" data-aos="fade-up" data-aos-delay="80" data-aos-duration="800" data-aos-once="true">
 									<span>WHO WE ARE</span>
-									<h3 dangerouslySetInnerHTML={{ __html: item.title }}></h3>
+									<AnimatedText as="h3" className="title" html={item.title} />
 									<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: item.description }}></p>
 									<div className="about-btn">
 										<Link href="/about">
@@ -74,9 +77,6 @@ const WhoWeAre = ({ item }) => {
 								</div>
 							</div>
 						</div>
-					</div>
-					<div className="about-shape-1">
-						<img src="/images/about/about-shape.png" alt="image" />
 					</div>
 				</div>
 			)}

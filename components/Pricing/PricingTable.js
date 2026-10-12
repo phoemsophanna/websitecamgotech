@@ -6,7 +6,7 @@ const PricingTable = ({ plans, setting }) => {
 	const global = useContext(GlobalContext);
 	return (
 		<>
-			<div className="pricing-area with-black-background pt-100 pb-75">
+			<div className="pricing-area pt-100 pb-75">
 				<div className="container">
 					<div className="section-title">
 						<span>WEB HOSTING</span>

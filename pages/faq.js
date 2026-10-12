@@ -59,25 +59,7 @@ export default function Faq(props) {
 			</Head>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.FaqPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Faq</h2> */}
-						<ul>
-							<li>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li>Faq</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<FaqContent faqs={faqs} />
-
-			<CTO />
+			<FaqContent faqs={faqs} background={`${api.FILE_URI}${global.data?.pageBanner?.FaqPage}`} />
 
 			<Footer />
 		</>

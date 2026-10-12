@@ -46,10 +46,11 @@
 		padding-right: 0;
 	}
 	.main-slides-content span {
-		font-size: 12px;
+		font-size: 18px;
 		margin-bottom: 12px;
 	}
-	.main-slides-content h1 {
+	.main-slides-content h1,
+	.main-slides-content h1 span {
 		font-size: 25px;
 		line-height: 1.5;
 	}
@@ -162,7 +163,7 @@
 		margin-top: 25px;
 	}
 	.about-content span {
-		font-size: 12px;
+		font-size: 18px;
 	}
 	.about-content h3 {
 		font-size: 20px;
@@ -302,7 +303,7 @@
 		padding-right: 0;
 	}
 	.testimonials-section-content span {
-		font-size: 12px;
+		font-size: 18px;
 	}
 	.testimonials-section-content h3 {
 		font-size: 20px;
@@ -1087,7 +1088,8 @@
 		font-size: 14px;
 		margin-bottom: 12px;
 	}
-	.main-slides-content h1 {
+	.main-slides-content h1,
+	.main-slides-content h1 span {
 		font-size: 45px;
 		line-height: 1.5;
 	}
@@ -1615,7 +1617,8 @@
 	.main-slides-content span {
 		font-size: 15px;
 	}
-	.main-slides-content h1 {
+	.main-slides-content h1,
+	.main-slides-content h1 span {
 		font-size: 50px;
 	}
 	.main-hero-content h1 {
@@ -1779,7 +1782,8 @@
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-	.main-slides-content h1 {
+	.main-slides-content h1,
+	.main-slides-content h1 span {
 		font-size: 50px;
 	}
 	.about-wrap-content .about-bg-text {
@@ -1821,7 +1825,8 @@
 		padding-left: 100px;
 		padding-right: 100px;
 	}
-	.main-slides-content h1 {
+	.main-slides-content h1,
+	.main-slides-content h1 span {
 		font-size: 100px;
 	}
 	.main-hero-item .container-fluid {
@@ -1849,3 +1854,168 @@
 	}
 }
 /*# sourceMappingURL=responsive.css.map */
+
+@media screen and (max-width: 992px) {
+	.navbar-area {
+		background-color: transparent;
+	}
+
+	.section-title span,
+	.about-wrap-content span {
+		font-size: 18px;
+		line-height: 1;
+	}
+
+	.modal.left .modal-dialog {
+		width: 100vw;
+	}
+
+	.main-slides-item {
+		padding-bottom: 40px !important;
+	}
+
+	.home-slides .slide-title {
+		font-size: 22px;
+	}
+
+	.main-slides-content p {
+		font-size: 16px !important;
+	}
+
+	.main-slides-content .slides-btn {
+		margin-top: 15px;
+	}
+
+	.about-content h3,
+	.about-content h3 span,
+	.section-title h2 span,
+	.testimonials-section-content h3 span,
+	.about-wrap-content h3 span {
+		font-size: 22px;
+	}
+
+	.choose-area .row [class*="col-"] {
+		padding: 0 5px;
+	}
+
+	.why-choose-items {
+		margin-bottom: 15px;
+		height: calc(100% - 15px);
+		border-radius: 20px;
+		padding: 15px !important;
+	}
+
+	.single-choose-card .choose-content h3 {
+		font-size: 16px;
+		margin-bottom: 10px;
+	}
+
+	.single-choose-card .choose-image {
+		margin-bottom: 15px;
+	}
+
+	.single-choose-card .choose-content p {
+		font-size: 14px !important;
+	}
+
+	.about-content p, 
+	.about-content p, .section-title p, .about-area.our-goal p,
+	.testimonials-section-content p,
+	.testimonials-item p {
+		font-size: 16px !important;
+	}
+
+	.testimonials-item .item-box img {
+		border-radius: 20px !important;
+	}
+
+	.blog-card .blog-content .date {
+		margin-top: 15px;
+		margin-bottom: 0;
+	}
+
+	.blog-area.homepage, .services-area.homepage, .choose-area.homepage, .blog-area.homepage, .partner-area.homepage, .about-area.our-goal, .skillsets, .location-iframe {
+		padding: 40px 0;
+	}
+
+	.blog-slides .blog-card {
+		margin-bottom: 0;
+	}
+
+	.footer-automation-title {
+		font-size: 50px;
+	}
+
+	.single-footer-widget h3 {
+		margin-bottom: 0;
+	}
+
+	.single-footer-widget .quick-links li:first-child {
+		margin-top: 20px;
+	}
+
+	.social-popup ul {
+		max-height: 0;
+		height: auto;
+		transition: all .5s ease;
+	}
+
+	.scroll-to-top i {
+		bottom: 10px;
+		left: 5px;
+	}
+
+	.footer-area {
+		padding-bottom: 130px;
+	}
+
+	.social-popup {
+		bottom: 10px;
+    	right: 5px;
+	}
+	
+	.social-popup.active ul {
+		max-height: 500px;
+	}
+
+	.single-footer-widget h3.header-profile {
+		margin-bottom: 15px;
+		text-align: left;
+	}
+
+	.single-footer-widget .widget-social.active {
+		margin-top: 15px;
+		text-align: left;
+	}
+
+	.dropdown-mobile p.active {
+		text-align: left;
+	}
+
+	.single-footer-widget .widget-social li {
+		margin-right: 10px;
+	}
+
+	.single-choose-card {
+		padding: 0;
+	}
+
+	.default-btn {
+		padding: 9px 15px;
+	}
+
+	.dropdown-mobile h3.header-profile::after {
+		display: none !important;
+	}
+
+	.footer-area > .container {
+		padding: 15px;
+		width: 90vw;
+	}
+
+	.sidebarModal.modal .modal-body .sidebar-contact-info,
+	.sidebarModal.modal .modal-body .sidebar-contact-info .info-list,
+	.sidebarModal.modal .modal-body .sidebar-social-list {
+		margin-top: 15px;
+	}
+}

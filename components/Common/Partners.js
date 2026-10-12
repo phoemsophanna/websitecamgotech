@@ -2,47 +2,58 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import { api } from "@/utils/config";
+import AnimatedText from "./AnimatedText";
 
-const Partners = ({ technologies }) => {
+const Partners = ({ technologies, background }) => {
 	return (
 		<>
-			<div className="partner-area ptb-100">
-				<div className="container">
-					<Swiper
-						slidesPerView={1}
-						spaceBetween={30}
-						autoplay={{
-							delay: 6000,
-							disableOnInteraction: true,
-						}}
-						breakpoints={{
-							0: {
-								slidesPerView: 2,
-							},
-							576: {
-								slidesPerView: 3,
-							},
-							768: {
-								slidesPerView: 4,
-							},
-							1024: {
-								slidesPerView: 6,
-							},
-						}}
-						modules={[Autoplay]}
-						className="mySwiper partner-slides"
-					>
-						{technologies.map((el, index) => (
-							<SwiperSlide key={index}>
-								<div className="partner-card">
-									<a>
-										<img src={`${api.FILE_URI}${el.image}`} alt={`Camgotech Technology | ${el.title}`} />
-										<img src={`${api.FILE_URI}${el.image}`} alt={`Camgotech Technology | ${el.title}`} />
+			<div className="partner-area homepage" style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
+				<div className="partner-marquee">
+					<div className="container">
+						<div className="section-title">
+							<AnimatedText as="h2" className="title" html={"Technology Language"} />
+						</div>
+						<div className="partner-track">
+							{technologies.map((el, index) => (
+								<div className="partner-card" key={`first-${index}`}>
+									<a href="#">
+										<img
+											src={`${api.FILE_URI}${el.image}`}
+											alt={`Camgotech Technology | ${el.title}`}
+										/>
+
+										<img
+											src={`${api.FILE_URI}${el.image}`}
+											alt={`Camgotech Technology | ${el.title}`}
+										/>
 									</a>
+
+									<div className="title">
+										<h2>{el.title}</h2>
+									</div>
 								</div>
-							</SwiperSlide>
-						))}
-					</Swiper>
+							))}
+							{technologies.map((el, index) => (
+								<div className="partner-card" key={`second-${index}`}>
+									<a href="#">
+										<img
+											src={`${api.FILE_URI}${el.image}`}
+											alt={`Camgotech Technology | ${el.title}`}
+										/>
+
+										<img
+											src={`${api.FILE_URI}${el.image}`}
+											alt={`Camgotech Technology | ${el.title}`}
+										/>
+									</a>
+
+									<div className="title">
+										<h2>{el.title}</h2>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 		</>

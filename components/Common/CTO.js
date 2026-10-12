@@ -1,7 +1,7 @@
 import GlobalContext from "@/utils/global-context";
 import React, { useContext, useEffect, useState } from "react";
 
-const CTO = () => {
+const CTO = ({ background }) => {
 	const global = useContext(GlobalContext);
 	const [contact, setContact] = useState(null);
 
@@ -11,7 +11,7 @@ const CTO = () => {
 
 	return (
 		<>
-			<div className="overview-area pt-100 pb-75">
+			<div className="overview-area contact-us" style={{backgroundImage: background}}>
 				<div className="container">
 					<div className="row justify-content-center">
 						<div className="col-lg-3 col-md-6">

@@ -1046,7 +1046,7 @@ Default CSS
 }
 
 .theme-dark .about-area {
-	border-top: 1px solid #151515;
+	/* border-top: 1px solid #151515; */
 	/* border-bottom: 1px solid #151515; */
 	background-color: #0e0e0e;
 }
@@ -1057,8 +1057,8 @@ Default CSS
 }
 
 .theme-dark .choose-area {
-	border-top: 1px solid #151515;
-	border-bottom: 1px solid #151515;
+	/* border-top: 1px solid #151515; */
+	/* border-bottom: 1px solid #151515; */
 	background-color: #0e0e0e;
 }
 
@@ -1077,8 +1077,8 @@ Default CSS
 }
 
 .theme-dark .testimonials-area {
-	border-top: 1px solid #151515;
-	border-bottom: 1px solid #151515;
+	/* border-top: 1px solid #151515; */
+	/* border-bottom: 1px solid #151515; */
 	background-color: #0e0e0e;
 }
 
@@ -1091,14 +1091,14 @@ Default CSS
 }
 
 .theme-dark .blog-area {
-	border-top: 1px solid #151515;
+	/* border-top: 1px solid #151515; */
 	background-color: var(--black-color);
 }
 
 .theme-dark .partner-area {
-	border-bottom: 1px solid #151515;
+	/* border-bottom: 1px solid #151515; */
 	background-color: #0e0e0e;
-	border-top: 1px solid #151515;
+	/* border-top: 1px solid #151515; */
 }
 
 .theme-dark .blog-card .blog-content .date {
@@ -1107,8 +1107,8 @@ Default CSS
 }
 
 .theme-dark .skill-area {
-	border-top: 1px solid #0e0e0e;
-	border-bottom: 1px solid #0e0e0e;
+	/* border-top: 1px solid #0e0e0e;
+	border-bottom: 1px solid #0e0e0e; */
 }
 
 .theme-dark .skill-bar .progress-title {
@@ -1124,8 +1124,8 @@ Default CSS
 }
 
 .theme-dark .services-area.bg-with-14042C-color {
-	border-top: 1px solid #0e0e0e;
-	border-bottom: 1px solid #0e0e0e;
+	/* border-top: 1px solid #0e0e0e;
+	border-bottom: 1px solid #0e0e0e; */
 }
 
 .theme-dark .services-area.bg-0e0e0e-color {
@@ -1291,11 +1291,11 @@ Default CSS
 }
 
 .theme-dark .team-area {
-	border-top: 1px solid #0e0e0e;
+	/* border-top: 1px solid #0e0e0e; */
 }
 
 .theme-dark .gallery-area {
-	border-bottom: 1px solid #0e0e0e;
+	/* border-bottom: 1px solid #0e0e0e; */
 }
 
 .theme-dark .services-details-desc .article-services-content .list li {
@@ -2861,8 +2861,8 @@ Default CSS
 	color: var(--main-color);
 }
 .theme-dark .about-area.who-we-are {
-	border-top: 1px solid #151515;
-	border-bottom: 1px solid #151515;
+	/* border-top: 1px solid #151515;
+	border-bottom: 1px solid #151515; */
 	background-color: #0e0e0e;
 }
 .theme-dark .about-area.our-goal {
@@ -2870,18 +2870,18 @@ Default CSS
 	background-color: var(--black-color);
 }
 .theme-dark .skill-area.service-bg {
-	border-top: 1px solid #151515;
-	border-bottom: 1px solid #151515;
+	/* border-top: 1px solid #151515; */
+	/* border-bottom: 1px solid #151515; */
 	background-color: #0e0e0e;
 }
 .theme-dark .pricing-area.pricing-bg {
-	border-top: 1px solid #151515;
-	border-bottom: 1px solid #151515;
+	/* border-top: 1px solid #151515; */
+	/* border-bottom: 1px solid #151515; */
 	background-color: #0e0e0e;
 }
 .theme-dark .projects-area.project-bg {
-	border-top: 1px solid #151515;
-	border-bottom: 1px solid #151515;
+	/* border-top: 1px solid #151515; */
+	/* border-bottom: 1px solid #151515; */
 	background-color: #0e0e0e;
 }
 .theme-dark .talk-content .contact-from form .form-group .form-control {

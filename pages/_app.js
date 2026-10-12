@@ -27,6 +27,8 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+import SocialPopUp from "@/components/Common/SocialPopUp";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 const TopProgressBar = dynamic(
 	() => {
@@ -36,18 +38,14 @@ const TopProgressBar = dynamic(
 );
 
 function MyApp({ Component, pageProps }) {
-	const [isDark, setDark] = React.useState(true);
 	const [state, setState] = React.useState({
 		data: null,
 	});
-
-	const toggleTheme = () => {
-		setDark(!isDark);
-	};
+	const { isThemeDark } = useToggleTheme();
 
 	React.useEffect(() => {
 		AOS.init();
-		document.documentElement.className = isDark ? "theme-dark" : "";
+		document.documentElement.className = isThemeDark ? "theme-dark" : "theme-light";
 		async function fetchGlobalState() {
 			try {
 				const url = `${api.BASE_URL}/contact-us-page`;
@@ -58,7 +56,7 @@ function MyApp({ Component, pageProps }) {
 			}
 		}
 		fetchGlobalState();
-	}, [isDark]);
+	}, [isThemeDark]);
 
 	const router = useRouter();
 
@@ -117,10 +115,11 @@ function MyApp({ Component, pageProps }) {
 					<span className="slider round"></span>
 				</label>
 			</div> */}
-			<TawkMessengerReact
+			{/* <TawkMessengerReact
 				propertyId="68a7e9306beb8c1922ef148d"
 				widgetId="1j37udq7p"
-			/>
+			/> */}
+			<SocialPopUp />
 		</>
 	);
 }

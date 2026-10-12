@@ -3,10 +3,10 @@ import Sidebar from "./Sidebar";
 import { api, web } from "@/utils/config";
 import { DateTimeFormat } from "@/utils/DateTimeFormate";
 
-const SingleBlogContent = ({ article, articles, services }) => {
+const SingleBlogContent = ({ article, articles, services, background }) => {
 	return (
 		<>
-			<div className="blog-details-area pt-100 pb-100">
+			<div className="blog-details-area" style={{ backgroundImage: background, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-8 col-md-12">

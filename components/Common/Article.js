@@ -4,17 +4,19 @@ import { Autoplay } from "swiper";
 import Link from "next/link";
 import { api } from "@/utils/config";
 import { DateTimeFormat } from "@/utils/DateTimeFormate";
+import AnimatedText from "./AnimatedText";
 
-const Article = ({ articles, setting, color = null }) => {
+const Article = ({ articles, setting, color = null, background }) => {
 	const swiperRef = React.useRef();
 
 	return (
 		<>
-			<div className={`blog-area pt-100 pb-75 ${color ? "homepage" : ""}`} style={color ? {backgroundColor: color} : {}}>
+			<div className={`blog-area homepage`} style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 				<div className="container">
 					<div className="section-title">
 						<span>ARTICLE</span>
-						<h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2>
+						<AnimatedText as="h2" className="title" html={setting?.title} />
+						{/* <h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2> */}
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
 					</div>
 					<div className="section-content">
@@ -63,13 +65,12 @@ const Article = ({ articles, setting, color = null }) => {
 														</Link>
 													</h3>
 													<p className="d-none d-md-inline-block">{el.summary}</p>
-
-													<Link href={`/blog/${el.id}`}>
-														<a className="blog-btn">View More</a>
-													</Link>
 													<div>
 														<div className="date">{DateTimeFormat(el.created_at)}</div>
 													</div>
+													<Link href={`/blog/${el.id}`}>
+														<a className="default-btn mt-3">View More</a>
+													</Link>
 												</div>
 											</div>
 										</div>

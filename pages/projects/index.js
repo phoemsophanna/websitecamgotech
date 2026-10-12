@@ -9,6 +9,8 @@ import { NextSeo } from "next-seo";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Script from "next/script";
+import AnimatedText from "@/components/Common/AnimatedText";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 const NUMBER_OF_USERS_TO_FETCH = 12;
 
@@ -21,6 +23,7 @@ export default function Projects(props) {
 	const [setting, setSetting] = useState(null);
 	const [offset, setOffset] = useState(NUMBER_OF_USERS_TO_FETCH);
 	const [allowScroll, setAllowScroll] = useState(true);
+	const { isThemeDark } = useToggleTheme();
 	const { ref, inView } = useInView();
 
 	const handleSelectTypeProject = (id) => {
@@ -96,27 +99,12 @@ export default function Projects(props) {
 			</Head>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.ProjectPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Projects</h2> */}
-						<ul>
-							<li style={{ fontSize: "19px" }}>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li style={{ fontSize: "19px" }}>Projects</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div className="projects-area pt-100 pb-75 project-bg" style={{ borderTop: "0px solid" }}>
+			<div className="projects-area project-bg" style={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="section-title">
 						<span>OUR PROJECTS</span>
-						<h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2>
+						<AnimatedText as="h2" className="title" html={setting?.title} />
+						{/* <h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2> */}
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
 					</div>
 					<div className="swiper-category">
@@ -147,7 +135,7 @@ export default function Projects(props) {
 
 					<div id="Container" className="row justify-content-center">
 						{projects?.map((el, index) => (
-							<div className="col-lg-3 col-md-6" key={index}>
+							<div className="col-lg-4 col-md-6" key={index}>
 								<div
 									className="single-projects-item"
 									data-aos="fade-up"

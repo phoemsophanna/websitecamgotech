@@ -10,6 +10,7 @@ import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 export async function getStaticProps() {
 	// fetch single post detail
@@ -24,6 +25,7 @@ export async function getStaticProps() {
 export default function Contact(props) {
 	const global = useContext(GlobalContext);
 	const [contact, setContact] = useState(null);
+	const { isThemeDark } = useToggleTheme();
 	useEffect(() => {
 		setContact(global.data?.contact);
 	}, [global]);
@@ -58,27 +60,11 @@ export default function Contact(props) {
 			</Head>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.ContactPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Contact Us</h2> */}
-						<ul className="with-contact-bg">
-							<li style={{ fontSize: "19px" }}>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li style={{ fontSize: "19px" }}>Contact Us</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			{/* <CTO background={`url(${api.FILE_URI}${global.data?.pageBanner?.ContactPage})`} /> */}
 
-			<CTO />
+			<ContactForm thumbnail={contact?.thumbnail} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 
-			<ContactForm thumbnail={contact?.thumbnail} />
-
-			<GoogleMap embedMap={contact?.embedMap} />
+			<GoogleMap embedMap={contact?.embedMap} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 
 			<Footer />
 		</>

@@ -12,6 +12,8 @@ import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
+import WorkingProcess from "@/components/Common/WorkingProcess";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 export async function getStaticProps() {
 	// fetch single post detail
@@ -29,6 +31,7 @@ export default function About(props) {
 	const [technologies, setTechnology] = useState([]);
 	const [settings, setSettings] = useState(null);
 	const [meta, setMeta] = useState(null);
+	const { isThemeDark } = useToggleTheme();
 	const global = useContext(GlobalContext);
 	useEffect(() => {
 		fetch(`${api.BASE_URL}/about-us-page`)
@@ -74,33 +77,19 @@ export default function About(props) {
 			</Head>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.AboutPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>About Us</h2> */}
-						<ul>
-							<li style={{ fontSize: "19px" }}>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li style={{ fontSize: "19px" }}>About Us</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<WhoWeAre item={settings?.whoWeAre} styleCss={{ borderTop: "0px solid", backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.AboutPage})` }} />
 
-			<WhoWeAre item={settings?.whoWeAre} styleCss={{ borderTop: "0px solid" }} />
-
-			{settings?.ourGoal && <OurGoal item={settings?.ourGoal} />}
+			{settings?.ourGoal && <OurGoal item={settings?.ourGoal} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />}
+			
+			<WorkingProcess performances={performances} setting={settings?.whyChooseUs} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 
 			<div className="bg-with-F5F5F5-color">
-				<WhyChooseUs performances={performances} setting={settings?.whyChooseUs} />
+				<WhyChooseUs performances={performances} setting={settings?.whyChooseUs} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 			</div>
 
-			<Skills skillsets={skillsets} setting={settings?.skillset} />
+			<Skills skillsets={skillsets} setting={settings?.skillset} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 
-			<Partners technologies={technologies} />
+			<Partners technologies={technologies} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 
 			<Footer />
 		</>

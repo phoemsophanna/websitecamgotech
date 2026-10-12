@@ -1,6 +1,7 @@
 import { api } from "@/utils/config";
 import React from "react";
 import Tilt from "react-next-tilt";
+import AnimatedText from "../Common/AnimatedText";
 
 const WhoWeAre = ({ item, styleCss }) => {
 	return (
@@ -29,7 +30,7 @@ const WhoWeAre = ({ item, styleCss }) => {
 					</div>
 				</div>
 			) : (
-				<div className="about-area who-we-are ptb-100" style={styleCss}>
+				<div className="about-area who-we-are" style={styleCss}>
 					<div className="container">
 						<div className="row align-items-center">
 							<div className="col-lg-6 col-md-12">
@@ -59,8 +60,8 @@ const WhoWeAre = ({ item, styleCss }) => {
 							<div className="col-lg-6 col-md-12">
 								<div className="about-content" data-aos="fade-up" data-aos-delay="80" data-aos-duration="800" data-aos-once="true">
 									<span>WHO WE ARE</span>
-									<h3 dangerouslySetInnerHTML={{ __html: item.title }}></h3>
-									<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: item.description }}></p>
+									<AnimatedText as="h3" className="title" html={item.title} />
+									<p dangerouslySetInnerHTML={{ __html: item.description }}></p>
 								</div>
 							</div>
 						</div>

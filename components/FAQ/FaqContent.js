@@ -1,15 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel } from "react-accessible-accordion";
+import AnimatedText from "../Common/AnimatedText";
 
-const FaqContent = ({ faqs }) => {
+const FaqContent = ({ faqs, background }) => {
 	return (
 		<>
-			<div className="faq-area ptb-100">
+			<div className="faq-area" style={{ backgroundImage: `url(${background})` }}>
 				<div className="container">
 					<div className="section-title">
 						<span>FAQ</span>
-						<h2>Frequently Ask Questions</h2>
+						<AnimatedText as="h2" className="title" html="Frequently Ask Questions" />
 					</div>
 
 					<div className="faq-accordion">

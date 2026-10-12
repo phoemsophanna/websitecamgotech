@@ -92,23 +92,7 @@ export default function TermsOfService() {
 			/>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.TermsofServicePage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Terms of Service</h2> */}
-						<ul>
-							<li>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li>Terms of Service</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div className="terms-of-service-area ptb-100">
+			<div className="terms-of-service-area" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.TermsofServicePage})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="row justify-content-center">
 						<div className="col-lg-10 col-md-12">
@@ -123,7 +107,7 @@ export default function TermsOfService() {
 				</div>
 			</div>
 
-			<CTO />
+			{/* <CTO /> */}
 
 			<Footer />
 		</>

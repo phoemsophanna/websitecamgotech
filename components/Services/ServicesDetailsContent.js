@@ -1,10 +1,10 @@
 import { api } from "@/utils/config";
 import React from "react";
 
-const ServicesDetailsContent = ({ service }) => {
+const ServicesDetailsContent = ({ service, background }) => {
 	return (
 		<>
-			<div className="services-details-area ptb-100">
+			<div className="services-details-area" style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 				<div className="container">
 					<div className="services-details-desc">
 						<div className="article-services-image">

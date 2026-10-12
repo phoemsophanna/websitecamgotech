@@ -9,6 +9,7 @@ import Head from "next/head";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 export async function getStaticPaths() {
 	const response = await fetch(`${api.BASE_URL}/article-page`);
@@ -40,6 +41,7 @@ export default function SingleBlog(props) {
 	const [data, setData] = useState(null);
 	const router = useRouter();
 	const global = useContext(GlobalContext);
+	const { isThemeDark } = useToggleTheme();
 
 	useEffect(() => {
 		fetch(`${api.BASE_URL}/article-detail/${router.query.slug}`)
@@ -82,28 +84,7 @@ export default function SingleBlog(props) {
 			</Head>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.TechNewsDetailPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Blog Details</h2> */}
-						<ul className="with-black-bg">
-							<li>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li>
-								<Link href="/blog">
-									<a>ព័​ត៌​មាន​ប​ច្ចេ​កវិទ្យា</a>
-								</Link>
-							</li>
-							<li>Detail</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			{data?.article ? <SingleBlogContent article={data.article} articles={data.articles} services={data.services} /> : null}
+			{data?.article ? <SingleBlogContent article={data.article} articles={data.articles} services={data.services} background={`url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`} /> : null}
 
 			<Footer />
 		</>

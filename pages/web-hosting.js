@@ -8,6 +8,8 @@ import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Script from "next/script";
+import AnimatedText from "@/components/Common/AnimatedText";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 export async function getStaticProps() {
 	// fetch single post detail
@@ -27,6 +29,7 @@ export default function WebHosting(props) {
 	const [defaultPlan, setDefaultPlan] = React.useState([]);
 	const [settings, setSettings] = React.useState(null);
 	const [meta, setMeta] = React.useState(null);
+	const { isThemeDark } = useToggleTheme();
 
 	useEffect(() => {
 		fetch(`${api.BASE_URL}/web-hosting-page`)
@@ -78,27 +81,12 @@ export default function WebHosting(props) {
 			</Head>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.WebHostingPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Web Hosting</h2> */}
-						<ul>
-							<li style={{ fontSize: "19px" }}>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li style={{ fontSize: "19px" }}>Web Hosting</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div className="pricing-area pt-100 pb-75 pricing-bg" style={{ borderTop: "0px solid" }}>
+			<div className="pricing-area pricing-bg" style={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="section-title">
 						<span>WEB HOSTING</span>
-						<h2 dangerouslySetInnerHTML={{ __html: settings?.webHosting?.title }}></h2>
+						<AnimatedText as="h2" className="title" html={settings?.webHosting?.title} />
+						{/* <h2 dangerouslySetInnerHTML={{ __html: settings?.webHosting?.title }}></h2> */}
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: settings?.webHosting?.description }}></p>
 					</div>
 
@@ -169,12 +157,12 @@ export default function WebHosting(props) {
 												</div>
 												{el.isMostPopular ? (
 													<div className="most-popular">
-														<span style={{ backgroundColor: el.mostPopularColor }}>Most Popular</span>
+														<span style={{ backgroundColor: `color-mix(in srgb, ${el.mostPopularColor} 10%, transparent)`, border: `1px solid color-mix(in srgb, ${el.mostPopularColor} 50%, transparent)` }}>Most Popular</span>
 													</div>
 												) : null}
 												{el.isGoodSpeed ? (
 													<div className="good-speed">
-														<span style={{ backgroundColor: el.goodSpeedColor }}>Good Speed</span>
+														<span style={{ backgroundColor: `color-mix(in srgb, ${el.goodSpeedColor} 10%, transparent)`, border: `1px solid color-mix(in srgb, ${el.goodSpeedColor} 50%, transparent)` }}>Good Speed</span>
 													</div>
 												) : null}
 											</div>
@@ -210,9 +198,9 @@ export default function WebHosting(props) {
 						</>
 					) : null}
 				</div>
-				<div className="projects-bg-shape-1">
+				{/* <div className="projects-bg-shape-1">
 					<img src="/images/projects/projects-bg-shape.png" alt="image" />
-				</div>
+				</div> */}
 			</div>
 
 			<Footer />

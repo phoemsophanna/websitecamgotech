@@ -9,6 +9,7 @@ import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 export async function getStaticProps() {
 	// fetch single post detail
@@ -25,6 +26,7 @@ export default function Services2(props) {
 	const [services, setServices] = useState([]);
 	const [skillsets, setSkillset] = useState([]);
 	const [settings, setSettings] = useState(null);
+	const { isThemeDark } = useToggleTheme();
 	useEffect(() => {
 		fetch(`${api.BASE_URL}/service-page`)
 			.then((res) => res.json())
@@ -67,25 +69,9 @@ export default function Services2(props) {
 			</Head>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.ServicePage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Services</h2> */}
-						<ul className="with-black-bg">
-							<li style={{ fontSize: "19px" }}>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li style={{ fontSize: "19px" }}>Services</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<AllServicesCardStyle2 services={services} setting={settings?.service} background={`url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`} />
 
-			<AllServicesCardStyle2 services={services} setting={settings?.service} />
-
-			<Skills bgColor="skill-area ptb-100 service-area" skillsets={skillsets} setting={settings?.skillset} />
+			<Skills bgColor="skill-area ptb-100 service-area" skillsets={skillsets} setting={settings?.skillset} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 
 			<Footer />
 		</>

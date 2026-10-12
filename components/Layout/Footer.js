@@ -1,10 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { CustomChat, FacebookProvider, Page } from "react-facebook";
 import GlobalContext from "@/utils/global-context";
+import { gsap } from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
+import useToggleTheme from "@/utils/useToggleTheme";
+
+gsap.registerPlugin(TextPlugin);
 
 const Footer = () => {
 	const global = useContext(GlobalContext);
+	const { isThemeDark } = useToggleTheme();
 	const [contact, setContact] = useState(null);
 	const [aboutCompany, setAboutCompany] = useState(null);
 	const [dropdown, setDropdown] = useState(false);
@@ -18,50 +24,13 @@ const Footer = () => {
 
 	return (
 		<>
-			<footer className="footer-area with-black-background pt-100">
+			<footer className="footer-area pt-100" style={{backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`}}>
 				<div className="container">
-					<div className="row justify-content-center">
-						<div className="col-lg-3 col-md-6">
-							<div className="single-footer-widget dropdown-mobile" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-								<h3 onClick={() => setDropdown(!dropdown)} className={`${dropdown ? "active" : ""}`}>{aboutCompany?.companyName || "Camgotech"}</h3>
-								<p className={`${dropdown ? "active" : ""}`} style={{ fontSize: "19px" }}>{aboutCompany?.aboutCompany}</p>
+					<div className="row justify-content-between">
 
-								<ul className={`${dropdown ? "active widget-social" : "widget-social"}`}>
-									{contact?.facebookLink && (
-										<li>
-											<a href={contact?.facebookLink} target="_blank" rel="noreferrer">
-												<i className="ri-facebook-fill"></i>
-											</a>
-										</li>
-									)}
-									{contact?.instagramLink && (
-										<li>
-											<a href={contact?.instagramLink} target="_blank" rel="noreferrer">
-												<i className="ri-instagram-line"></i>
-											</a>
-										</li>
-									)}
-									{contact?.telegramLink && (
-										<li>
-											<a href={contact?.telegramLink} target="_blank" rel="noreferrer">
-												<i className="ri-telegram-fill"></i>
-											</a>
-										</li>
-									)}
-									{contact?.linkedinLink && (
-										<li>
-											<a href={contact?.linkedinLink} target="_blank" rel="noreferrer">
-												<i className="ri-linkedin-fill"></i>
-											</a>
-										</li>
-									)}
-								</ul>
-							</div>
-						</div>
-
-						<div className="col-lg-3 col-md-6">
-							<div className="single-footer-widget dropdown-mobile ps-5" data-aos="fade-up" data-aos-delay="60" data-aos-duration="600" data-aos-once="true">
-								<h3 onClick={() => setDropdown2(!dropdown2)} className={`${dropdown2 ? "active" : ""}`}>Menu</h3>
+						<div className="col-lg-3 col-md-6 order-2 order-lg-1">
+							<div className="single-footer-widget dropdown-mobile" data-aos="fade-up" data-aos-delay="60" data-aos-duration="600" data-aos-once="true">
+								<h3 onClick={() => setDropdown2(!dropdown2)} className={`${dropdown2 ? "active" : ""}`}>MENU</h3>
 
 								<ul className={`${dropdown2 ? "active quick-links" : "quick-links"}`}>
 									<li>
@@ -98,9 +67,50 @@ const Footer = () => {
 							</div>
 						</div>
 
-						<div className="col-lg-3 col-md-6">
-							<div className="single-footer-widget dropdown-mobile ps-5" data-aos="fade-up" data-aos-delay="70" data-aos-duration="700" data-aos-once="true">
-								<h3 onClick={() => setDropdown3(!dropdown3)} className={`${dropdown3 ? "active" : ""}`}>Page</h3>
+						<div className="col-lg-4 col-md-6 order-1 order-lg-2">
+							<div className="single-footer-widget dropdown-mobile" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
+								<h3 className={`header-profile`}>
+									{/* {aboutCompany?.companyName || "Camgotech"} */}
+									<span>CAMGO</span>TECH
+								</h3>
+								<p className={`active`} style={{ fontSize: "19px" }}>{aboutCompany?.aboutCompany}</p>
+
+								<ul className={`active d-md-block d-none widget-social`}>
+									{contact?.facebookLink && (
+										<li>
+											<a href={contact?.facebookLink} target="_blank" rel="noreferrer">
+												<i className="ri-facebook-fill facebook"></i>
+											</a>
+										</li>
+									)}
+									{contact?.instagramLink && (
+										<li>
+											<a href={contact?.instagramLink} target="_blank" rel="noreferrer">
+												<i className="ri-instagram-line instagram"></i>
+											</a>
+										</li>
+									)}
+									{contact?.telegramLink && (
+										<li>
+											<a href={contact?.telegramLink} target="_blank" rel="noreferrer">
+												<i className="ri-telegram-fill telegram"></i>
+											</a>
+										</li>
+									)}
+									{contact?.linkedinLink && (
+										<li>
+											<a href={contact?.linkedinLink} target="_blank" rel="noreferrer">
+												<i className="ri-linkedin-fill linkedin"></i>
+											</a>
+										</li>
+									)}
+								</ul>
+							</div>
+						</div>
+
+						<div className="col-lg-3 col-md-6 order-3 order-lg-3">
+							<div className="single-footer-widget dropdown-mobile" data-aos="fade-up" data-aos-delay="70" data-aos-duration="700" data-aos-once="true">
+								<h3 onClick={() => setDropdown3(!dropdown3)} className={`${dropdown3 ? "active" : ""}`}>OTHER PAGES</h3>
 
 								<ul className={`${dropdown3 ? "active quick-links" : "quick-links"}`}>
 									<li>
@@ -131,24 +141,6 @@ const Footer = () => {
 								</ul>
 							</div>
 						</div>
-
-						<div className="col-lg-3 col-md-6">
-							<div className="single-footer-widget dropdown-mobile" data-aos="fade-up" data-aos-delay="80" data-aos-duration="800" data-aos-once="true">
-								<h3 onClick={() => setDropdown4(!dropdown4)} className={`${dropdown4 ? "active" : ""}`}>Facebook Page</h3>
-								<div className={`facebook-plugin ${dropdown4 ? "active" : ""}`}>
-									{contact && (
-										<FacebookProvider appId={contact.appId}>
-											<Page href={`https://www.facebook.com/${contact.pageId}`} tabs="timeline" width={500} height={230} />
-										</FacebookProvider>
-									)}
-									{contact && (
-										<FacebookProvider appId={contact.appId} chatSupport>
-											<CustomChat pageId="100662512843050" minimized="false" />
-										</FacebookProvider>
-									)}
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 
@@ -163,8 +155,40 @@ const Footer = () => {
 								. All Rights Reserved
 							</p>
 						</div>
+						<ul className={`active d-md-none d-block widget-social`}>
+							{contact?.facebookLink && (
+								<li>
+									<a href={contact?.facebookLink} target="_blank" rel="noreferrer">
+										<i className="ri-facebook-fill facebook"></i>
+									</a>
+								</li>
+							)}
+							{contact?.instagramLink && (
+								<li>
+									<a href={contact?.instagramLink} target="_blank" rel="noreferrer">
+										<i className="ri-instagram-line instagram"></i>
+									</a>
+								</li>
+							)}
+							{contact?.telegramLink && (
+								<li>
+									<a href={contact?.telegramLink} target="_blank" rel="noreferrer">
+										<i className="ri-telegram-fill telegram"></i>
+									</a>
+								</li>
+							)}
+							{contact?.linkedinLink && (
+								<li>
+									<a href={contact?.linkedinLink} target="_blank" rel="noreferrer">
+										<i className="ri-linkedin-fill linkedin"></i>
+									</a>
+								</li>
+							)}
+						</ul>
 					</div>
 				</div>
+
+				<FooterTitle />
 
 				{/* Shape Images */}
 				<div className="footer-shape-1">
@@ -180,5 +204,53 @@ const Footer = () => {
 		</>
 	);
 };
+
+function FooterTitle() {
+    const titleRef = useRef(null);
+
+    useEffect(() => {
+        const element = titleRef.current;
+
+        if (!element) return;
+
+        const ctx = gsap.context(() => {
+            const timeline = gsap.timeline({
+                repeat: -1,
+                repeatDelay: 1,
+            });
+
+            timeline
+                // Type
+                .to(element, {
+                    duration: 2.5,
+                    text: "CAMGOTECH",
+                    ease: "none",
+                })
+
+                // Wait
+                .to({}, {
+                    duration: 2,
+                })
+
+                // Delete
+                .to(element, {
+                    duration: 1.5,
+                    text: "",
+                    ease: "none",
+                });
+        }, titleRef);
+
+        return () => {
+            ctx.revert();
+        };
+    }, []);
+
+    return (
+        <h2
+            ref={titleRef}
+            className="footer-automation-title"
+        ></h2>
+    );
+}
 
 export default Footer;

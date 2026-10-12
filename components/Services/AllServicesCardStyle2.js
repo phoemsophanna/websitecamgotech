@@ -1,15 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import { api } from "@/utils/config";
+import AnimatedText from "../Common/AnimatedText";
 
-const AllServicesCardStyle2 = ({ services, setting }) => {
+const AllServicesCardStyle2 = ({ services, setting, background }) => {
 	return (
 		<>
-			<div className="services-area pt-100 pb-75">
+			<div className="services-area" style={{backgroundImage: background}}>
 				<div className="container">
 					<div className="section-title">
 						<span>SERVICES</span>
-						<h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2>
+						<AnimatedText as="h2" className="title" html={setting?.title} />
+						{/* <h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2> */}
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
 					</div>
 

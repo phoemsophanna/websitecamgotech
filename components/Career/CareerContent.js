@@ -1,16 +1,15 @@
 import React from "react";
 import Link from "next/link";
+import AnimatedText from "../Common/AnimatedText";
 
-const CareerContent = ({ careers, telegramLink }) => {
+const CareerContent = ({ careers, telegramLink, background }) => {
 	return (
 		<>
-			<div className="career-area pt-100 pb-100">
+			<div className="career-area" style={{backgroundImage: background}}>
 				<div className="container">
 					<div className="section-title">
 						<span>Career</span>
-						<h2>
-							When You Have Jobs In Multiple <b>Locations</b>
-						</h2>
+						<AnimatedText as="h2" className="title" html="When You Have Jobs In Multiple <b>Locations</b>" />
 					</div>
 
 					{careers.map((el, index) => (

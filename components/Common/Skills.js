@@ -2,17 +2,19 @@ import React from "react";
 import Link from "next/link";
 import Tilt from "react-next-tilt";
 import { api } from "@/utils/config";
+import AnimatedText from "./AnimatedText";
 
-const Skills = ({ bgColor, skillsets, setting }) => {
+const Skills = ({ bgColor, skillsets, setting, background }) => {
 	return (
 		<>
-			<div className={bgColor}>
+			<div className="skillsets" style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 				<div className="container">
 					<div className="row align-items-center">
 						<div className="col-lg-6 col-md-12">
 							<div className="skill-content section-title">
 								<span>SKILLSET</span>
-								<h3 dangerouslySetInnerHTML={{ __html: setting?.title }}></h3>
+								<AnimatedText as="h3" className="title" html={setting?.title} />
+								{/* <h3 dangerouslySetInnerHTML={{ __html: setting?.title }}></h3> */}
 								<p dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
 							</div>
 							{skillsets.map((el, index) => (

@@ -7,11 +7,14 @@ import { api } from "@/utils/config";
 import GlobalContext from "@/utils/global-context";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
+import AnimatedText from "@/components/Common/AnimatedText";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 export default function Testimonials() {
 	const global = useContext(GlobalContext);
 	const [testimonials, setTestimonial] = useState([]);
 	const [meta, setMeta] = useState(null);
+	const { isThemeDark } = useToggleTheme();
 
 	useEffect(() => {
 		fetch(`${api.BASE_URL}/testimonial-page`)
@@ -88,29 +91,11 @@ export default function Testimonials() {
 			/>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.TestimonialPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Testimonials</h2> */}
-						<ul>
-							<li>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li>Testimonials</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div className="testimonials-area pt-100 pb-75">
+			<div className="testimonials-area" style={{ backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})` }}>
 				<div className="container">
 					<div className="section-title">
 						<span>TESTIMONIALS</span>
-						<h2>
-							Some <b>Sweet Feedback</b> of Our Happy Clients
-						</h2>
+						<AnimatedText as="h2" className="title" html="Some <b>Sweet Feedback</b> of Our Happy Clients" />
 						<p>We have many happy customers with us and they give us feedback and satisfaction.</p>
 					</div>
 
