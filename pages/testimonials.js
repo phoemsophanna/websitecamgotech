@@ -94,7 +94,7 @@ export default function Testimonials() {
 			<div className="testimonials-area" style={{ backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})` }}>
 				<div className="container">
 					<div className="section-title">
-						<span>TESTIMONIALS</span>
+						<span style={{visibility: "hidden"}}>TESTIMONIALS</span>
 						<AnimatedText as="h2" className="title" html="Some <b>Sweet Feedback</b> of Our Happy Clients" />
 						<p>We have many happy customers with us and they give us feedback and satisfaction.</p>
 					</div>
@@ -112,9 +112,13 @@ export default function Testimonials() {
 									<p className="single__testimonials--comment">{el.comment}</p>
 
 									<div className="info-item-box">
-										<img src={`${api.FILE_URI}${el.reviewerProfile}`} className="rounded-circle" alt={el.reviewerProfile} />
-										<h4>{el.reviewerName}</h4>
-										<p>{el.reviewerPosition}</p>
+										<div className="avatar-client">
+											<img src={`${api.FILE_URI}${el.reviewerProfile}`} className="rounded-circle" alt={el.reviewerProfile} />
+										</div>
+										<div className="content-client">
+											<h4>{el.reviewerName}</h4>
+											<p>{el.reviewerPosition}</p>
+										</div>
 									</div>
 								</div>
 							</div>

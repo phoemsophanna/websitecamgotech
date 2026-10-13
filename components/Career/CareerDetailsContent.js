@@ -1,9 +1,9 @@
 import React from "react";
 
-const CareerDetailsContent = ({ career }) => {
+const CareerDetailsContent = ({ career, background }) => {
 	return (
 		<>
-			<div className="career-details-area pt-100 pb-100">
+			<div className="career-details-area" style={{backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}}>
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-9 col-md-12">

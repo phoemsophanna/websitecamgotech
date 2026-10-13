@@ -399,7 +399,7 @@ const Navbar = () => {
 									</li>
 									<li className="nav-item">
 										<Link href="/blog" activeClassName="active">
-											<a className="nav-link">ព័ត៌មានបច្ចេកវិទ្យា</a>
+											<a className="nav-link">TECH NEWS</a>
 										</Link>
 									</li>
 

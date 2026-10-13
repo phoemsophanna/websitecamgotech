@@ -26,12 +26,12 @@ const SingleBlogContent = ({ article, articles, services, background }) => {
 
 								<div className="article-share">
 									<div className="row align-items-center">
-										<div className="col-lg-6 col-md-6">
+										<div className="col-lg-6 col-5">
 											<div className="share-content">
 												<h4>Share The Article:</h4>
 											</div>
 										</div>
-										<div className="col-lg-6 col-md-6">
+										<div className="col-lg-6 col-7">
 											<ul className="share-social text-end">
 												<li>
 													<a

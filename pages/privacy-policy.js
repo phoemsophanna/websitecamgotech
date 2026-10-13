@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
 			/>
 			<Navbar />
 
-			<div className="privacy-policy-area ptb-100" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.PrivacyPolicyPage})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+			<div className="privacy-policy-area" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.PrivacyPolicyPage})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="row justify-content-center">
 						<div className="col-lg-10 col-md-12">

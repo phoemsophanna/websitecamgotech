@@ -89,6 +89,11 @@ const ContactForm = ({ thumbnail, background }) => {
 		<>
 			<div className="talk-area" style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 				<div className="container">
+					<div className="section-title">
+						<span style={{visibility: "hidden"}}>WORKING PROCCESS</span>
+						<AnimatedText as="h2" html={`Contact Us`} className="title" />
+						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: `We are ready to provide our best services to you with reasonable cost and quality of services and the very best solutions.` }}></p>
+					</div>
 					<div className="row align-items-center">
 						<div className="col-lg-6 col-md-12">
 							<div className="contact-grid">
@@ -244,9 +249,7 @@ const ContactForm = ({ thumbnail, background }) => {
 										<div className="contact-links">
 
 											<a
-												href={`https://maps.google.com/maps?q=${encodeURIComponent(
-													contacts.address
-												)}`}
+												href={`https://maps.app.goo.gl/RYDr28t5v7pXkWH8A`}
 												target="_blank"
 												rel="noreferrer"
 												className="contact-link"

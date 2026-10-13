@@ -10,7 +10,7 @@ const BlogGridStyle2 = ({ articles, setting, styleCss }) => {
 			<div className="blog-area" style={styleCss}>
 				<div className="container">
 					<div className="section-title">
-						<span>ARTICLE</span>
+						<span style={{visibility: "hidden"}}>ARTICLE</span>
 						<AnimatedText as="h2" className="title" html={setting?.title} />
 						{/* <h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2> */}
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
@@ -36,7 +36,7 @@ const BlogGridStyle2 = ({ articles, setting, styleCss }) => {
 										<p>{el.summary}</p>
 										<div className="blog-footer">
 											<Link href={{ pathname: "/blog/[slug]", query: { slug: el.id } }}>
-												<a className="blog-btn">View More</a>
+												<a className="blog-btn">Read More</a>
 											</Link>
 											<div className="date">{DateTimeFormat(el.created_at)}</div>
 										</div>

@@ -66,7 +66,7 @@ export default function Projects(props) {
 		}
 		// setOffset(offset + NUMBER_OF_USERS_TO_FETCH);
 		// }
-	}, [props, inView]);
+	}, []);
 
 	return (
 		<>
@@ -102,7 +102,7 @@ export default function Projects(props) {
 			<div className="projects-area project-bg" style={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="section-title">
-						<span>OUR PROJECTS</span>
+						<span style={{visibility: "hidden"}}>OUR PROJECTS</span>
 						<AnimatedText as="h2" className="title" html={setting?.title} />
 						{/* <h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2> */}
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>

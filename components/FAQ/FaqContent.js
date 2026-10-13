@@ -9,7 +9,7 @@ const FaqContent = ({ faqs, background }) => {
 			<div className="faq-area" style={{ backgroundImage: `url(${background})` }}>
 				<div className="container">
 					<div className="section-title">
-						<span>FAQ</span>
+						<span style={{visibility: "hidden"}}>FAQ</span>
 						<AnimatedText as="h2" className="title" html="Frequently Ask Questions" />
 					</div>
 

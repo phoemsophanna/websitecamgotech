@@ -30,6 +30,7 @@ export default function About(props) {
 	const [skillsets, setSkillset] = useState([]);
 	const [technologies, setTechnology] = useState([]);
 	const [settings, setSettings] = useState(null);
+	const [whyChoose, setWhyChoose] = useState([]);
 	const [meta, setMeta] = useState(null);
 	const { isThemeDark } = useToggleTheme();
 	const global = useContext(GlobalContext);
@@ -43,6 +44,7 @@ export default function About(props) {
 					setTechnology(data.technologies);
 					setSettings(data.settings);
 					setMeta(data.settings.meta);
+					setWhyChoose(data.whyChooses);
 				}
 			});
 	}, []);
@@ -81,15 +83,15 @@ export default function About(props) {
 
 			{settings?.ourGoal && <OurGoal item={settings?.ourGoal} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />}
 			
-			<WorkingProcess performances={performances} setting={settings?.whyChooseUs} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+			<WorkingProcess performances={performances} setting={settings?.workingProcess} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 
 			<div className="bg-with-F5F5F5-color">
-				<WhyChooseUs performances={performances} setting={settings?.whyChooseUs} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+				<WhyChooseUs performances={whyChoose} setting={settings?.whyChooseUs} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 			</div>
 
 			<Skills skillsets={skillsets} setting={settings?.skillset} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 
-			<Partners technologies={technologies} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+			<Partners technologies={technologies} background={`${isThemeDark ? "/images/image.jfif" : "/images/image.jfif"}`} />
 
 			<Footer />
 		</>

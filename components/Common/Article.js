@@ -69,7 +69,7 @@ const Article = ({ articles, setting, color = null, background }) => {
 														<div className="date">{DateTimeFormat(el.created_at)}</div>
 													</div>
 													<Link href={`/blog/${el.id}`}>
-														<a className="default-btn mt-3">View More</a>
+														<a className="default-btn mt-3">Read More</a>
 													</Link>
 												</div>
 											</div>

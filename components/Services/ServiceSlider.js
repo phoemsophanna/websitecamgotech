@@ -63,7 +63,7 @@ const ServiceSlider = ({ services, hasBgColor, setting, background }) => {
 											{el.summary}
 										</p>
 										<Link href={`/services/${el.id}`}>
-											<a className="services-btn">View More</a>
+											<a className="services-btn">View Detail</a>
 										</Link>
 									</div>
 								</div>

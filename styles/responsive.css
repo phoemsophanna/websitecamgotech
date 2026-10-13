@@ -2018,4 +2018,78 @@
 	.sidebarModal.modal .modal-body .sidebar-social-list {
 		margin-top: 15px;
 	}
+
+	.service-page .services-item {
+		padding: 10px !important;
+	}
+
+	.theme-dark .services-item .services-content h3 {
+		font-size: 24px;
+	}
+
+	.about-area.who-we-are, .services-area, .blog-area, .services-details-area, .pricing-area.pricing-bg, .projects-area.project-bg, .overview-area.contact-us, .testimonials-area, .faq-area, .career-area, .terms-of-service-area, .blog-details-area, .talk-area {
+		padding: 100px 0 60px 0;
+	}
+
+	.services-details-area, .terms-of-service-area, .blog-details-area,
+	.career-details-area,
+	.privacy-policy-area {
+		padding: 140px 0 60px 0;
+	}
+
+	p {
+		font-size: 19px;
+	}
+
+	.blog-details-desc .article-share {
+		padding: 10px 20px;
+	}
+
+	.article-share .row [class*="col-"] {
+		padding: 0 5px;
+	}
+
+	.blog-details-desc .article-share .share-social {
+		margin-top: 0;
+		text-align: end !important;
+	}
+
+	.copyright-area .copyright-area-content p {
+		font-size: 14px;
+	}
+
+	.testimonials-item .item-box h4 {
+		position: absolute;
+		top: 25px;
+		width: 220px;
+		left: 140px;
+		line-height: 1.7;
+		font-size: 19px;
+		font-weight: 600;
+	}	
+	.testimonials-item .item-box h4 span {
+		display: block;
+		font-size: 17px;
+	}
+	.faq-accordion .accordion__item .accordion__button {
+		padding: 20px 40px 20px 25px;
+	}
+	.faq-accordion .accordion__item .accordion__button::before {
+		right: 5px;
+	}
+	.career-group-btn {
+		justify-content: space-between;
+	}
+
+	.career-item .career-content h3 {
+		font-size: 22px;
+	}
+}
+
+p {
+	font-size: 19px;
+}
+
+.widget-area .widget_categories .list li a {
+	font-size: 19px
 }

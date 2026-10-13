@@ -10,6 +10,7 @@ import GlobalContext from "@/utils/global-context";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 import Script from "next/script";
+import useToggleTheme from "@/utils/useToggleTheme";
 
 export async function getStaticPaths() {
 	const response = await fetch(`${api.BASE_URL}/career-page`);
@@ -41,6 +42,7 @@ export default function CareerDetails(props) {
 	const global = useContext(GlobalContext);
 	const router = useRouter(null);
 	const [career, setCareer] = useState(null);
+	const { isThemeDark } = useToggleTheme();
 
 	useEffect(() => {
 		fetch(`${api.BASE_URL}/career-detail/${router.query.slug}`)
@@ -85,30 +87,9 @@ export default function CareerDetails(props) {
 			/>
 			<Navbar />
 
-			<div className="page-banner-area mt-94" style={{ backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.CareerPage})` }}>
-				<div className="container">
-					<div className="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-						{/* <h2>Career Details</h2> */}
-						<ul>
-							<li>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li>
-								<Link href="/career">
-									<a>Careers</a>
-								</Link>
-							</li>
-							<li>Detail</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<CareerDetailsContent career={career} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
 
-			<CareerDetailsContent career={career} />
-
-			<CTO />
+			{/* <CTO /> */}
 
 			<Footer />
 		</>

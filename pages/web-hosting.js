@@ -84,7 +84,7 @@ export default function WebHosting(props) {
 			<div className="pricing-area pricing-bg" style={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="section-title">
-						<span>WEB HOSTING</span>
+						<span style={{visibility: "hidden"}}>WEB HOSTING</span>
 						<AnimatedText as="h2" className="title" html={settings?.webHosting?.title} />
 						{/* <h2 dangerouslySetInnerHTML={{ __html: settings?.webHosting?.title }}></h2> */}
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: settings?.webHosting?.description }}></p>
@@ -178,7 +178,7 @@ export default function WebHosting(props) {
 									All plans also include these benefits
 								</p>
 							</div>
-							<div className="single-pricing-card" style={{ padding: "0px", backgroundColor: "transparent", border: "none" }}>
+							<div className="single-pricing-card list-benifit" style={{ padding: "0px", backgroundColor: "transparent", border: "none" }}>
 								<ul className="row pricing-list px-3">
 									{defaultPlan.map((el, index) => (
 										<li

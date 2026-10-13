@@ -11,7 +11,7 @@ const Partners = ({ technologies, background }) => {
 				<div className="partner-marquee">
 					<div className="container">
 						<div className="section-title">
-							<AnimatedText as="h2" className="title" html={"Technology Language"} />
+							<AnimatedText as="h2" className="title" html={"Our Technology"} />
 						</div>
 						<div className="partner-track">
 							{technologies.map((el, index) => (
