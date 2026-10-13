@@ -11849,3 +11849,7 @@ h2.swal2-title {
 .career-item .career-content h3 {
 	font-size: 22px;
 }
+
+.copyright-area .widget-social {
+	display: none !important;
+}

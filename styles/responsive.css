@@ -2067,6 +2067,11 @@
 		font-size: 19px;
 		font-weight: 600;
 	}	
+
+	.copyright-area .widget-social {
+		display: flex !important;
+	}
+
 	.testimonials-item .item-box h4 span {
 		display: block;
 		font-size: 17px;
