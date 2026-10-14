@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export default function SocialPopUp () {
+export default function SocialPopUp ({className}) {
     const [show, setShow] = useState(false);
-    return <div className={`social-popup ${show ? "active" : ""}`}>
+    return <div className={`social-popup ${show ? "active" : ""} ${className}`}>
 				<button type="button" className="social-toggle" onClick={() => setShow((prev) => !prev)}>
 					<i className={show ? "ri-close-line" : `ri-customer-service-2-fill`}></i>
 				</button>

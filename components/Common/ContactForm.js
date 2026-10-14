@@ -91,8 +91,8 @@ const ContactForm = ({ thumbnail, background }) => {
 				<div className="container">
 					<div className="section-title">
 						<span style={{visibility: "hidden"}}>WORKING PROCCESS</span>
-						<AnimatedText as="h2" html={`Contact Us`} className="title" />
-						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: `We are ready to provide our best services to you with reasonable cost and quality of services and the very best solutions.` }}></p>
+						<AnimatedText as="h2" html={contacts?.title || ""} className="title" />
+						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: contacts?.description || "" }}></p>
 					</div>
 					<div className="row align-items-center">
 						<div className="col-lg-6 col-md-12">

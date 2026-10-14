@@ -12071,3 +12071,9 @@ h2.swal2-title {
 .services-details-desc .article-services-image:hover img {
 	filter: none;
 }
+
+.social-popup.left-side {
+	left: 15px;
+	bottom: 95px;
+	right: auto;
+}

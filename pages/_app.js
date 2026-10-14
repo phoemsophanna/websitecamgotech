@@ -42,6 +42,7 @@ function MyApp({ Component, pageProps }) {
 		data: null,
 	});
 	const { isThemeDark } = useToggleTheme();
+	const [widget, setWidget] = React.useState(false);
 
 	React.useEffect(() => {
 		AOS.init();
@@ -50,6 +51,7 @@ function MyApp({ Component, pageProps }) {
 			try {
 				const url = `${api.BASE_URL}/contact-us-page`;
 				const response = await axios.get(url);
+				setWidget(response.data?.contact.widget);
 				setState({ data: response.data });
 			} catch (error) {
 				console.log(error);
@@ -115,11 +117,15 @@ function MyApp({ Component, pageProps }) {
 					<span className="slider round"></span>
 				</label>
 			</div> */}
-			{/* <TawkMessengerReact
-				propertyId="68a7e9306beb8c1922ef148d"
-				widgetId="1j37udq7p"
-			/> */}
-			<SocialPopUp />
+			{
+				widget ? (
+					<TawkMessengerReact
+						propertyId="68a7e9306beb8c1922ef148d"
+						widgetId="1j37udq7p"
+					/>
+				) : ""
+			}
+			<SocialPopUp className={widget ? `left-side` : ""} />
 		</>
 	);
 }

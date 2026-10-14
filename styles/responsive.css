@@ -1983,6 +1983,12 @@
 		bottom: 10px;
     	right: 5px;
 	}
+
+	.social-popup.left-side {
+		right: auto;
+		left: 3px;
+		bottom: 60px;
+	}
 	
 	.social-popup.active ul {
 		max-height: 500px;
