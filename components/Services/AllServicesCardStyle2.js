@@ -21,7 +21,7 @@ const AllServicesCardStyle2 = ({ services, setting, background }) => {
 								<div className="row align-items-center">
 									<div className={`col-md-6 col-12 ${(index + 1) % 2 == 0 ? 'order-md-2' : 'order-md-1'} order-1`}>
 										<div className="services-image">
-											<Link href={`/services/${el.id}`}>
+											<Link href={`/services/${el.slug}`}>
 												<a>
 													<img src={`${api.FILE_URI}${el.image}`} alt={el.image} />
 												</a>
@@ -31,12 +31,12 @@ const AllServicesCardStyle2 = ({ services, setting, background }) => {
 									<div className={`col-md-6 col-12 ${(index + 1) % 2 == 0 ? 'order-md-1' : 'order-md-2'} order-2`}>
 										<div className={`services-content text-start ${(index + 1) % 2 == 0 ? 'text-md-end' : 'text-md-start'}`}>
 											<h3>
-												<Link href={`/services/${el.id}`}>
+												<Link href={`/services/${el.slug}`}>
 													<a>{el.title}</a>
 												</Link>
 											</h3>
 											<p style={{ fontSize: "18px" }} dangerouslySetInnerHTML={{__html: el.summary}} />
-											<Link href={`/services/${el.id}`}>
+											<Link href={`/services/${el.slug}`}>
 												<a className="services-btn">View Detail</a>
 											</Link>
 										</div>

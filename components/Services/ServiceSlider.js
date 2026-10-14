@@ -55,7 +55,7 @@ const ServiceSlider = ({ services, hasBgColor, setting, background, related_serv
 							<SwiperSlide key={index}>
 								<div className="services-item">
 									<div className="services-image">
-										<Link href={`/services/${el.id}`}>
+										<Link href={`/services/${el.slug}`}>
 											<a>
 												<img src={`${api.FILE_URI}${el.image}`} alt={el.title} />
 											</a>
@@ -63,7 +63,7 @@ const ServiceSlider = ({ services, hasBgColor, setting, background, related_serv
 									</div>
 									<div className="services-content">
 										<h3>
-											<Link href={`/services/${el.id}`}>
+											<Link href={`/services/${el.slug}`}>
 												<a className="text-truncate" style={{ width: "100%" }}>
 													{el.title}
 												</a>
@@ -72,7 +72,7 @@ const ServiceSlider = ({ services, hasBgColor, setting, background, related_serv
 										<p style={{ fontSize: "18px" }} className="text-overflow-3">
 											{el.summary}
 										</p>
-										<Link href={`/services/${el.id}`}>
+										<Link href={`/services/${el.slug}`}>
 											<a className="services-btn">View Detail</a>
 										</Link>
 									</div>
