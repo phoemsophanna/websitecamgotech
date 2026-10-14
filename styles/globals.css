@@ -10511,6 +10511,7 @@ h2.swal2-title {
 	border-radius: 25px;
 	transition: all 0.5s ease-in;
 	height: calc(100% - 25px);
+	text-align: center;
 }
 
 .theme-dark .why-choose-items {
@@ -10549,10 +10550,13 @@ h2.swal2-title {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--main-color);
-	height: 45px;
-	width: 45px;
-	border-radius: 15px;
+	/* background-color: var(--main-color); */
+	background-color: transparent;
+	border: 1px solid #ffffff12;
+	height: 65px;
+	width: 65px;
+	border-radius: 65px;
+	overflow: hidden;
 }
 
 .why-choose-items .choose-content h3 {
@@ -11746,7 +11750,7 @@ h2.swal2-title {
 }
 
 .why-choose-items.single-choose-card .choose-image img {
-	width: 30px;
+	width: 65px;
 }
 
 .swiper-category .swiper-slide.mixitup-control-active {

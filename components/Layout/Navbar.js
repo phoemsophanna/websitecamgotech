@@ -29,9 +29,11 @@ const Navbar = () => {
 
 	const [contact, setContact] = useState(null);
 	const [aboutCompany, setAboutCompany] = useState(null);
+	const [services, setServices] = useState([]);
 	useEffect(() => {
 		setContact(global.data?.contact);
 		setAboutCompany(global.data?.aboutCompany);
+		setServices(global.data?.services);
 	}, [global]);
 
 	const classOne = menu ? "collapse navbar-collapse mean-menu" : "collapse navbar-collapse show";
@@ -95,57 +97,22 @@ const Navbar = () => {
 													SERVICES
 												</a>
 											</Link>
-											<ul className="dropdown-menu">
-												<li className="nav-item">
-													<Link href="/">
-														<a className="nav-link">
-															<span dangerouslySetInnerHTML={{__html: svg.websites_design}}></span>
-															Website design and development
-														</a>
-													</Link>
-												</li>
-						
-												<li className="nav-item">
-													<Link href="/index-2" activeClassName="active">
-													<a className="nav-link">
-														<span dangerouslySetInnerHTML={{__html: svg.mobile_app}}></span>
-														Mobile app development
-													</a>
-													</Link>
-												</li>
-						
-												<li className="nav-item">
-													<Link href="/index-3" activeClassName="active">
-													<a className="nav-link">
-														<span dangerouslySetInnerHTML={{__html: svg.software}}></span>
-														Software development</a>
-													</Link>
-												</li>
-
-												<li className="nav-item">
-													<Link href="/index-3" activeClassName="active">
-													<a className="nav-link">
-														<span dangerouslySetInnerHTML={{__html: svg.digital}}></span>
-														Digital Marketing & Seo Solution</a>
-													</Link>
-												</li>
-
-												<li className="nav-item">
-													<Link href="/index-3" activeClassName="active">
-													<a className="nav-link">
-														<span dangerouslySetInnerHTML={{__html: svg.domain}}></span>
-														Domain Register & Web Hosting</a>
-													</Link>
-												</li>
-
-												<li className="nav-item">
-													<Link href="/index-3" activeClassName="active">
-													<a className="nav-link">
-														<span dangerouslySetInnerHTML={{__html: svg.design}}></span>
-														Corporate Design</a>
-													</Link>
-												</li>
-											</ul>
+											{
+												services ? (
+													<ul className="dropdown-menu">
+														{services.map((el) => (
+															<li className="nav-item">
+																<Link href={`/services/${el.slug}`}>
+																	<a className="nav-link">
+																		<span dangerouslySetInnerHTML={{__html: el.svg}}></span>
+																		{el.title}
+																	</a>
+																</Link>
+															</li>
+														))}
+													</ul>
+												) : ""
+											}
 										</li>
 										<li className="nav-item">
 											<Link href="/web-hosting" activeClassName="active">
