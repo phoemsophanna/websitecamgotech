@@ -35,7 +35,7 @@ const AllServicesCardStyle2 = ({ services, setting, background }) => {
 													<a>{el.title}</a>
 												</Link>
 											</h3>
-											<p style={{ fontSize: "18px" }}>{el.summary}</p>
+											<p style={{ fontSize: "18px" }} dangerouslySetInnerHTML={{__html: el.summary}} />
 											<Link href={`/services/${el.id}`}>
 												<a className="services-btn">View Detail</a>
 											</Link>

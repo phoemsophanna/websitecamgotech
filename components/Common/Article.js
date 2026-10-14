@@ -33,8 +33,13 @@ const Article = ({ articles, setting, color = null, background }) => {
 								disableOnInteraction: true,
 							}}
 							breakpoints={{
+								0: {
+									slidesPerView: 1,
+									spaceBetween: 15,
+								},
 								768: {
 									slidesPerView: 2,
+									spaceBetween: 30,
 								},
 							}}
 							modules={[Autoplay]}
@@ -48,7 +53,7 @@ const Article = ({ articles, setting, color = null, background }) => {
 								<SwiperSlide key={index}>
 									<div className="blog-card">
 										<div className="row align-items-center">
-											<div className="col-lg-6">
+											<div className="col-md-6">
 												<div className="blog-image">
 													<Link href={`/blog/${el.id}`}>
 														<a>
@@ -57,14 +62,18 @@ const Article = ({ articles, setting, color = null, background }) => {
 													</Link>
 												</div>
 											</div>
-											<div className="col-lg-6">
+											<div className="col-md-6">
 												<div className="blog-content">
 													<h3>
 														<Link href={`/blog/${el.id}`}>
 															<a className="text-truncate-3">{el.title}</a>
 														</Link>
 													</h3>
-													<p className="d-none d-md-inline-block">{el.summary}</p>
+													{
+														el.summary ? (
+															<p className="d-none d-md-inline-block">{el.summary}</p>
+														) : ""
+													}
 													<div>
 														<div className="date">{DateTimeFormat(el.created_at)}</div>
 													</div>

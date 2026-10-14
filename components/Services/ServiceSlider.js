@@ -5,16 +5,26 @@ import { Autoplay, Pagination } from "swiper";
 import { api } from "@/utils/config";
 import AnimatedText from "../Common/AnimatedText";
 
-const ServiceSlider = ({ services, hasBgColor, setting, background }) => {
+const ServiceSlider = ({ services, hasBgColor, setting, background, related_service = false }) => {
 	return (
 		<>
 			<div className={"services-area homepage"} style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 				<div className="container">
 					<div className="section-title" data-aos="fade-down" data-aos-delay="80" data-aos-duration="800" data-aos-once="true">
-						<span>SERVICES</span>
-						<AnimatedText className="title" as="h2" html={setting?.title} />
-						{/* <h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2> */}
-						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
+						{
+							related_service ? (
+								<>
+									<span>OUR SERVICES</span>
+								</>
+							) : (
+								<>
+									<span>SERVICES</span>
+									<AnimatedText className="title" as="h2" html={setting?.title} />
+									{/* <h2 dangerouslySetInnerHTML={{ __html: setting?.title }}></h2> */}
+									<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
+								</>
+							)
+						}
 					</div>
 					<Swiper
 						slidesPerView={1}

@@ -130,7 +130,7 @@ export default function ServiceDetails(props) {
 
 			{relatedServices.length > 0 ? (
 				<div className="radius-0">
-					<ServiceSlider hasBgColor={true} services={relatedServices} setting={settings?.service} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+					<ServiceSlider hasBgColor={true} services={relatedServices} setting={settings?.service} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} related_service={true} />
 				</div>
 			) : null}
 

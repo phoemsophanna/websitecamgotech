@@ -8,7 +8,7 @@ import AnimatedText from "./AnimatedText";
 const Testimonials = ({ testimonials, setting, background }) => {
 	return (
 		<>
-			<div className="testimonials-area ptb-100" style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
+			<div className="testimonials-area homepage ptb-100" style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 				<div className="container">
 					<div className="row align-items-center">
 						<div className="col-lg-6 col-md-12">

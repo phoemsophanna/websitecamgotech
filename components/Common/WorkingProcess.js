@@ -5,13 +5,19 @@ import AnimatedText from "./AnimatedText";
 
 const WorkingProcess = ({ performances, setting, background }) => {
 	const [items, setItems] = React.useState([]);
+	const [item, setItem] = React.useState(null);
 
 	useEffect(() => {
 		setItems(performances.map((el) => ({ ...el, truncate: true })));
+		setItem(performances.find((el, index) => index == 0));
 	}, [performances]);
 
 	function unTruncate(id) {
 		setItems(items.map((el) => ({ ...el, truncate: el.id === id ? !el.truncate : el.truncate })));
+	}
+
+	const handleChangeWorkProcess = (id) => {
+		setItem(items.find((el) => el.id == id));
 	}
 
 	return (
@@ -23,8 +29,48 @@ const WorkingProcess = ({ performances, setting, background }) => {
 						<AnimatedText as="h2" html={setting?.title} className="title" />
 						<p style={{ fontSize: "19px" }} dangerouslySetInnerHTML={{ __html: setting?.description }}></p>
 					</div>
-
-					<div className="row justify-content-center">
+					<div className="menu-step">
+    					<div className="menu-step-inner">
+							{items.map((el, index) => (
+								<button onClick={() => handleChangeWorkProcess(el.id)} className={`${item.id == el.id ? "active" : ""}`}>
+									<span>STEP 0{index + 1}</span>
+									{el.title || ""}
+								</button>
+							))}
+						</div>
+					</div>
+					<div
+						className="single-choose-card working-process-item"
+						data-aos="fade-up"
+						data-aos-delay={50 + 1 * 10}
+						data-aos-duration={600 + 1 * 200}
+						data-aos-once="true"
+					>
+						{
+							item ? (
+								<div className="group-working-process" key={item.id}>
+									<div className="col-md-6 order-md-1 order-2 col-12">
+										<div className="choose-content item-animate">
+											<h3>
+												<a>{item.title || ""}</a>
+											</h3>
+											<p style={{ fontSize: "19px" }}>
+												{item.description || ""}
+											</p>
+										</div>
+									</div>
+									<div className="col-md-6 order-md-2 order-1 col-12">
+										<div className="choose-image item-animate">
+											<a>
+												<img src={`${api.FILE_URI}${item.image}`} alt={item.image} />
+											</a>
+										</div>
+									</div>
+								</div>
+							) : ""
+						}
+					</div>
+					{/* <div className="row justify-content-center">
 						{items.map((el, index) => (
 							<div key={index} className="col-lg-3 col-6" style={{ cursor: "pointer" }} onClick={() => unTruncate(el.id)}>
 								<div
@@ -57,7 +103,7 @@ const WorkingProcess = ({ performances, setting, background }) => {
 								</div>
 							</div>
 						))}
-					</div>
+					</div> */}
 				</div>
 
 				{/* Shape Images */}
