@@ -71,7 +71,8 @@ const Footer = () => {
 							<div className="single-footer-widget dropdown-mobile" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
 								<h3 className={`header-profile`}>
 									{/* {aboutCompany?.companyName || "Camgotech"} */}
-									<span>CAMGO</span>TECH
+									{/* <span>CAMGO</span>TECH */}
+									<img src="/images/CAMGOTECH_logo_transparent.png" alt="" width={250} />
 								</h3>
 								<p className={`active`} style={{ fontSize: "19px" }}>{aboutCompany?.aboutCompany}</p>
 
@@ -104,7 +105,7 @@ const Footer = () => {
 											</a>
 										</li>
 									)}
-									
+
 									{contact?.tiktokLink && (
 										<li>
 											<a href={contact?.tiktokLink} target="_blank" rel="noreferrer">

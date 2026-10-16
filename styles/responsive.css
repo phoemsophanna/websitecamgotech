@@ -1996,7 +1996,7 @@
 
 	.single-footer-widget h3.header-profile {
 		margin-bottom: 15px;
-		text-align: left;
+		text-align: center;
 	}
 
 	.single-footer-widget .widget-social.active {
@@ -2005,7 +2005,7 @@
 	}
 
 	.dropdown-mobile p.active {
-		text-align: left;
+		text-align: center;
 	}
 
 	.single-footer-widget .widget-social li {

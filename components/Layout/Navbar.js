@@ -394,26 +394,51 @@ const Navbar = () => {
 							</div>
 
 							<ul className="sidebar-social-list">
-								<li>
-									<a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-										<i className="ri-facebook-fill facebook"></i>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-										<i className="ri-instagram-fill instagram"></i>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.telegram.com/" target="_blank" rel="noreferrer">
-										<i className="ri-telegram-fill telegram"></i>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-										<i className="ri-linkedin-fill linkedin"></i>
-									</a>
-								</li>
+								{
+									contact?.facebookLink ? (
+										<li>
+											<a href={contact?.facebookLink} target="_blank" rel="noreferrer">
+												<i className="ri-facebook-fill facebook"></i>
+											</a>
+										</li>
+									) : ""
+								}
+								{
+									contact?.instagramLink ? (
+										<li>
+											<a href={contact?.instagramLink} target="_blank" rel="noreferrer">
+												<i className="ri-instagram-fill instagram"></i>
+											</a>
+										</li>
+									) : ""
+								}
+								{
+									contact?.telegramLink ? (
+										<li>
+											<a href={contact?.telegramLink} target="_blank" rel="noreferrer">
+												<i className="ri-telegram-fill telegram"></i>
+											</a>
+										</li>
+									) : ""
+								}
+								{
+									contact?.linkedinLink ? (
+										<li>
+											<a href={contact?.linkedinLink} target="_blank" rel="noreferrer">
+												<i className="ri-linkedin-fill linkedin"></i>
+											</a>
+										</li>
+									) : ""
+								}
+								{
+									contact?.tiktokLink ? (
+										<li>
+											<a href={contact?.tiktokLink} target="_blank" rel="noreferrer">
+												<i className="ri-tiktok-fill tiktok"></i>
+											</a>
+										</li>
+									) : ""
+								}
 							</ul>
 						</div>
 					</div>
