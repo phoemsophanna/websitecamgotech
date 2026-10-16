@@ -84,7 +84,7 @@ export default function SingleBlog(props) {
 			</Head>
 			<Navbar />
 
-			{data?.article ? <SingleBlogContent article={data.article} articles={data.articles} services={data.services} background={`url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`} /> : null}
+			{data?.article ? <SingleBlogContent article={data.article} articles={data.articles} services={data.services} background={`url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})`} /> : null}
 
 			<Footer />
 		</>

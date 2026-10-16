@@ -52,7 +52,7 @@ export default function Blog2(props) {
 			</Head>
 			<Navbar />
 
-			{articles?.length > 0 ? <BlogGridStyle2 articles={articles} setting={settings?.techNews} styleCss={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})` }} /> : null}
+			{articles?.length > 0 ? <BlogGridStyle2 articles={articles} setting={settings?.techNews} styleCss={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})` }} /> : null}
 
 			<Footer />
 		</>

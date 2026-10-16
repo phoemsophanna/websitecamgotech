@@ -87,7 +87,7 @@ export default function CareerDetails(props) {
 			/>
 			<Navbar />
 
-			<CareerDetailsContent career={career} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+			<CareerDetailsContent career={career} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} />
 
 			{/* <CTO /> */}
 

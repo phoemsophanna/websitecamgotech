@@ -81,7 +81,7 @@ export default function WebHosting(props) {
 			</Head>
 			<Navbar />
 
-			<div className="pricing-area pricing-bg" style={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+			<div className="pricing-area pricing-bg" style={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/3.web-hosting-black.webp" : "/images/3.web-hosting-ligh.webp"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="section-title">
 						<span style={{visibility: "hidden"}}>WEB HOSTING</span>

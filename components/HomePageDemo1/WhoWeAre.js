@@ -11,7 +11,7 @@ const WhoWeAre = ({ item }) => {
 	return (
 		<>
 			{!item ? (
-				<div className="about-area ptb-100" style={{backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
+				<div className="about-area ptb-100" style={{backgroundImage: `url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 					<div className="container">
 						<div className="row align-items-center ">
 							<div className="col-lg-6 col-md-12 placeholder-glow">
@@ -37,7 +37,7 @@ const WhoWeAre = ({ item }) => {
 					</div> */}
 				</div>
 			) : (
-				<div className="about-area ptb-100" style={{backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
+				<div className="about-area ptb-100" style={{backgroundImage: `url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 					<div className="container">
 						<div className="row align-items-center">
 							<div className="col-lg-6 col-md-12">

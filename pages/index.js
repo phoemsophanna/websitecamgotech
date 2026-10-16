@@ -64,14 +64,14 @@ export default function Home(props) {
 
 			<WhoWeAre item={settings?.whoWeAre} />
 
-			{props?.data?.services?.length > 0 ? <ServiceSlider services={props?.data?.services} setting={settings?.service} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} /> : ""}
-			<WorkingProcess performances={props?.data?.performances} setting={settings?.whyChooseUs} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+			{props?.data?.services?.length > 0 ? <ServiceSlider services={props?.data?.services} setting={settings?.service} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} /> : ""}
+			<WorkingProcess performances={props?.data?.performances} setting={settings?.whyChooseUs} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} />
 			{/* {props?.data?.performances?.length > 0 ? <WhyChooseUs performances={props?.data?.performances} setting={settings?.whyChooseUs} /> : ""} */}
 			{/* {props?.data?.projects?.length > 0 ? <ProjectSlider projects={props?.data?.projects} setting={settings?.project} /> : ""} */}
-			{props?.data?.testimonials?.length > 0 ? <Testimonials testimonials={props?.data?.testimonials} setting={settings?.testimonial} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} /> : ""}
+			{props?.data?.testimonials?.length > 0 ? <Testimonials testimonials={props?.data?.testimonials} setting={settings?.testimonial} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} /> : ""}
 			{props?.data?.plans?.length > 0 ? <PricingTable className="rounded-4" plans={props?.data?.plans} setting={settings?.webHosting} /> : ""}
-			{props?.data?.articles?.length > 0 ? <Article articles={props?.data?.articles} color={"var(--black-color)"} setting={settings?.techNews} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} /> : ""}
-			{props?.data?.technologies?.length > 0 ? <Partners technologies={props?.data?.technologies} background={`${isThemeDark ? "/images/image.jfif" : "/images/image.jfif"}`} /> : ""}
+			{props?.data?.articles?.length > 0 ? <Article articles={props?.data?.articles} color={"var(--black-color)"} setting={settings?.techNews} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} /> : ""}
+			{props?.data?.technologies?.length > 0 ? <Partners technologies={props?.data?.technologies} background={`${isThemeDark ? "/images/5.our-technology.png" : "/images/Midnight_Blue_Digital_Network.png"}`} /> : ""}
 
 			<Footer className="rounded-4" />
 		</>

@@ -9,7 +9,7 @@ const Partners = ({ technologies, background }) => {
 		<>
 			<div className="partner-area homepage" style={{backgroundImage: `url(${background})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
 				<div className="partner-marquee">
-					<div className="container">
+					<div className="container-fluid">
 						<div className="section-title">
 							<AnimatedText as="h2" className="title" html={"Our Technology"} />
 						</div>

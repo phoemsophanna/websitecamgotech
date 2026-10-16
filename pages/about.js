@@ -79,19 +79,19 @@ export default function About(props) {
 			</Head>
 			<Navbar />
 
-			<WhoWeAre item={settings?.whoWeAre} styleCss={{ borderTop: "0px solid", backgroundImage: `url(${api.FILE_URI}${global.data?.pageBanner?.AboutPage})` }} />
+			<WhoWeAre item={settings?.whoWeAre} styleCss={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})` }} />
 
-			{settings?.ourGoal && <OurGoal item={settings?.ourGoal} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />}
+			{settings?.ourGoal && <OurGoal item={settings?.ourGoal} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} />}
 			
-			<WorkingProcess performances={performances} setting={settings?.workingProcess} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+			<WorkingProcess performances={performances} setting={settings?.workingProcess} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} />
 
 			<div className="bg-with-F5F5F5-color">
-				<WhyChooseUs performances={whyChoose} setting={settings?.whyChooseUs} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+				<WhyChooseUs performances={whyChoose} setting={settings?.whyChooseUs} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} />
 			</div>
 
-			<Skills skillsets={skillsets} setting={settings?.skillset} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+			<Skills skillsets={skillsets} setting={settings?.skillset} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} />
 
-			<Partners technologies={technologies} background={`${isThemeDark ? "/images/image.jfif" : "/images/image.jfif"}`} />
+			<Partners technologies={technologies} background={`${isThemeDark ? "/images/5.our-technology.png" : "/images/Midnight_Blue_Digital_Network.png"}`} />
 
 			<Footer />
 		</>

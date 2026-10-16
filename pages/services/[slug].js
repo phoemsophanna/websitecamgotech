@@ -126,11 +126,11 @@ export default function ServiceDetails(props) {
 
 			{loading ? <div className="camgotech_spinner"></div> : null}
 
-			{service ? <ServicesDetailsContent service={service} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} /> : null}
+			{service ? <ServicesDetailsContent service={service} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} /> : null}
 
 			{relatedServices.length > 0 ? (
 				<div className="radius-0">
-					<ServiceSlider hasBgColor={true} services={relatedServices} setting={settings?.service} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} related_service={true} />
+					<ServiceSlider hasBgColor={true} services={relatedServices} setting={settings?.service} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} related_service={true} />
 				</div>
 			) : null}
 

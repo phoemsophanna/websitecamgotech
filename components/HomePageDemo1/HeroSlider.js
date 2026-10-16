@@ -450,7 +450,7 @@ const HeroSlider = ({ sliders = [] }) => {
 
     return (
         <>
-            <div className="main-slides-area" style={{backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+            <div className="main-slides-area" style={{backgroundImage: `url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 
                 {sliders.length <= 0 ? (
 
@@ -564,8 +564,7 @@ const HeroSlider = ({ sliders = [] }) => {
                                     <SwiperSlide
                                         key={index}
                                     >
-
-                                        <div className="main-slides-item" style={{backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                                        <div className="main-slides-item" style={{backgroundImage: `url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 
                                             <div className="container-fluid">
 

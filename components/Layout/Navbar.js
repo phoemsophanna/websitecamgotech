@@ -144,10 +144,11 @@ const Navbar = () => {
 
 								<div className="others-options d-none d-md-flex align-items-center">
 									<div className="switch-box">
-										<label className="switch">
+										{/* <label className="switch">
 											<input type="checkbox" checked={isThemeDark ? false : true} onChange={toggleTheme} />
 											<span className="slider round"></span>
-										</label>
+										</label> */}
+										<input type="checkbox" role="switch" class="neon" checked={isThemeDark ? false : true} onChange={toggleTheme} />
 									</div>
 									{/* <div className="option-item">
 										<div className="side-menu-btn" onClick={handleToggleSidebarModal}>
@@ -157,10 +158,11 @@ const Navbar = () => {
 								</div>
 								<div className="others-options d-flex d-md-none align-items-center">
 									<div className="switch-box">
-										<label className="switch">
+										{/* <label className="switch">
 											<input type="checkbox" onChange={toggleTheme} />
 											<span className="slider round"></span>
-										</label>
+										</label> */}
+										<input type="checkbox" role="switch" class="neon" checked={isThemeDark ? false : true} onChange={toggleTheme} />
 									</div>
 									<div className="option-item">
 										<div className="side-menu-btn" onClick={handleToggleSidebarLeftModal}>

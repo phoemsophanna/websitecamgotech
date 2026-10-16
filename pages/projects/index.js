@@ -99,7 +99,7 @@ export default function Projects(props) {
 			</Head>
 			<Navbar />
 
-			<div className="projects-area project-bg" style={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+			<div className="projects-area project-bg" style={{ borderTop: "0px solid", backgroundImage: `url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
 				<div className="container">
 					<div className="section-title">
 						<span style={{visibility: "hidden"}}>OUR PROJECTS</span>

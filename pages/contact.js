@@ -62,9 +62,9 @@ export default function Contact(props) {
 
 			{/* <CTO background={`url(${api.FILE_URI}${global.data?.pageBanner?.ContactPage})`} /> */}
 
-			<ContactForm thumbnail={contact?.thumbnail} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+			<ContactForm thumbnail={contact?.thumbnail} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} />
 
-			<GoogleMap embedMap={contact?.embedMap} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+			<GoogleMap embedMap={contact?.embedMap} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} />
 
 			<Footer />
 		</>

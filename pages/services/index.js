@@ -69,9 +69,9 @@ export default function Services2(props) {
 			</Head>
 			<Navbar />
 
-			<AllServicesCardStyle2 services={services} setting={settings?.service} background={`url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})`} />
+			<AllServicesCardStyle2 services={services} setting={settings?.service} background={`url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})`} />
 
-			<Skills bgColor="skill-area ptb-100 service-area" skillsets={skillsets} setting={settings?.skillset} background={`${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"}`} />
+			<Skills bgColor="skill-area ptb-100 service-area" skillsets={skillsets} setting={settings?.skillset} background={`${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"}`} />
 
 			<Footer />
 		</>

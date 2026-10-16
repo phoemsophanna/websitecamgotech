@@ -91,7 +91,7 @@ export default function Testimonials() {
 			/>
 			<Navbar />
 
-			<div className="testimonials-area" style={{ backgroundImage: `url(${isThemeDark ? "/images/theme_dark.jpg" : "/images/theme_blue.jpg"})` }}>
+			<div className="testimonials-area" style={{ backgroundImage: `url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})` }}>
 				<div className="container">
 					<div className="section-title">
 						<span style={{visibility: "hidden"}}>TESTIMONIALS</span>
