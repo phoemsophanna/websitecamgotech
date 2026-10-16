@@ -8,6 +8,7 @@ import useToggleTheme from "@/utils/useToggleTheme";
 
 const WhoWeAre = ({ item }) => {
 	const { isThemeDark } = useToggleTheme();
+	if(!item) return; 
 	return (
 		<>
 			<div className="about-area ptb-100" style={{backgroundImage: `url(${isThemeDark ? "/images/1.Black-Darkness.webp" : "/images/theme_blue.jpg"})`,backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"}}>
