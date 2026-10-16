@@ -32,8 +32,6 @@ body {
 	margin: 0;
 	font-family: var(--main-font-family);
 	font-size: var(--font-size);
-	/* background-color: #f6f6f6; */
-	background-color: #999999;
 }
 
 a {
@@ -1072,12 +1070,6 @@ About Area CSS
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
-	background-color: #8e8e8e;
-}
-
-.about-area.who-we-are {
-	background-color: #999999;
-	/* background-color: #fafafa; */
 }
 
 .about-content {
@@ -10991,6 +10983,13 @@ h2.swal2-title {
 	border-color: #0A66C2;
 }
 
+.single-footer-widget .widget-social li a:hover .tiktok,
+.sidebarModal.modal .modal-body .sidebar-social-list li a:hover .tiktok,
+.copyright-area .widget-social li a:hover .tiktok {
+    background: #000000 !important;
+    border-color: #25F4EE !important;
+}
+
 .single-footer-widget .quick-links li a:hover::before {
 	right: 10px;
 }
@@ -11000,6 +10999,7 @@ h2.swal2-title {
 	height: 45px;
     width: 45px;
     line-height: 44px;
+	cursor: pointer;
 }
 
 .theme-light .default-btn {
@@ -12099,7 +12099,7 @@ h2.swal2-title {
 }
 
 .neon {
-    --x: 5deg;
+    --x: 10deg;
     --c: #0000;
     --color: #0d6efd;
 
@@ -12230,7 +12230,7 @@ h2.swal2-title {
 
 /* Hover */
 .neon:hover {
-    --x: 10deg;
+    --x: 50deg;
     --c: rgb(13 110 253 / 25%);
 
     box-shadow:

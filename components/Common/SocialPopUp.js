@@ -1,7 +1,9 @@
-import { useState } from "react";
+import GlobalContext from "@/utils/global-context";
+import { useContext, useEffect, useState } from "react";
 
-export default function SocialPopUp ({className}) {
+export default function SocialPopUp ({className, contact}) {
     const [show, setShow] = useState(false);
+
     return <div className={`social-popup ${show ? "active" : ""} ${className}`}>
 				<button type="button" className="social-toggle" onClick={() => setShow((prev) => !prev)}>
 					<i className={show ? "ri-close-line" : `ri-customer-service-2-fill`}></i>
@@ -17,11 +19,15 @@ export default function SocialPopUp ({className}) {
 							<i className="ri-telegram-fill"></i>
 						</a>
 					</li>
-                    <li>
-						<a href="https://web.whatsapp.com/" target="_blank" className="whatsapp">
-							<i className="ri-whatsapp-fill"></i>
-						</a>
-					</li>
+					{
+						contact?.whatsappLink ? (
+							<li>
+								<a href={contact?.whatsappLink} target="_blank" className="whatsapp">
+									<i className="ri-whatsapp-fill"></i>
+								</a>
+							</li>
+						) : ""
+					}
                     <li>
 						<a href="tel:012 358 333" target="_blank" className="whatsapp">
 							<i className="ri-phone-fill"></i>

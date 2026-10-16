@@ -141,6 +141,23 @@ const ContactForm = ({ thumbnail, background }) => {
 												<i className="ri-external-link-line contact-link-arrow"></i>
 											</a>
 										)}
+										
+										{contacts?.whatsappLink && (
+											<a
+												href={contacts.whatsappLink}
+												target="_blank"
+												rel="noreferrer"
+												className="contact-link"
+											>
+												<div className="contact-link-icon whatsapp">
+													<i className="ri-whatsapp-line"></i>
+												</div>
+
+												<span>Whatsapp</span>
+
+												<i className="ri-external-link-line contact-link-arrow"></i>
+											</a>
+										)}
 
 									</div>
 								</div>

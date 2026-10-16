@@ -43,6 +43,7 @@ function MyApp({ Component, pageProps }) {
 	});
 	const { isThemeDark } = useToggleTheme();
 	const [widget, setWidget] = React.useState(false);
+	const [contact, setContact] = React.useState(null);
 
 	React.useEffect(() => {
 		AOS.init();
@@ -53,6 +54,7 @@ function MyApp({ Component, pageProps }) {
 				const response = await axios.get(url);
 				setWidget(response.data?.contact.widget);
 				setState({ data: response.data });
+				setContact(response.data?.contact);
 			} catch (error) {
 				console.log(error);
 			}
@@ -125,7 +127,7 @@ function MyApp({ Component, pageProps }) {
 					/>
 				) : ""
 			}
-			<SocialPopUp className={widget ? `left-side` : ""} />
+			<SocialPopUp className={widget ? `left-side` : ""} contact={contact} />
 		</>
 	);
 }
