@@ -12306,3 +12306,7 @@ h2.swal2-title {
 .theme-light .footer-automation-title {
 	color: #c9c9c9;
 }
+
+body {
+	background-color: #000 !important;
+}
