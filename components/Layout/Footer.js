@@ -193,6 +193,13 @@ const Footer = () => {
 									</a>
 								</li>
 							)}
+							{contact?.tiktokLink && (
+								<li>
+									<a href={contact?.tiktokLink} target="_blank" rel="noreferrer">
+										<i className="ri-tiktok-fill tiktok"></i>
+									</a>
+								</li>
+							)}
 						</ul>
 					</div>
 				</div>
